@@ -1,11 +1,10 @@
-import { getSummary, getBoostScenario } from './calculator.js';
-import { renderChart } from './chart.js';
+import { getSummary, getBoostScenario, projectSavings } from './calculator.js';
 
 export function getElements() {
   return Object.fromEntries([
-    'heroTitle','estimatedLabel','encouragement','investedValue','gainValue','performanceValue','yearsSelect',
-    'chartGrid','mainPath','investedPath','areaPath','mainDot','investedDot','goalProgress','goalNumbers','goalPercent',
-    'goalPlant','goalDate','growthNote','boostOptions','boostPreview','boostResult','boostTimeSaved','applyBoostBtn',
+    'heroTitle','estimatedLabel','investedValue','gainValue','performanceValue','yearsSelect','heroDuration','timeGainValue',
+    'milestone1Year','milestone1Value','milestone1Gain','milestone2Year','milestone2Value','milestone2Gain','milestone3Year','milestone3Value','milestone3Gain',
+    'goalProgress','goalNumbers','goalPercent','goalPlant','goalDate','growthNote','boostOptions','boostPreview','boostResult','boostTimeSaved','applyBoostBtn',
     'initialCapital','initialValue','monthly','monthlyValue','returnValue','languageBtn','themeBtn','strategyGrid'
   ].map(id => [id, document.getElementById(id)]));
 }
@@ -30,6 +29,31 @@ function getPlantStage(progress) {
   return '🌱';
 }
 
+function milestoneYears(totalYears) {
+  const first = 1;
+  const middle = Math.max(2, Math.round(totalYears / 2));
+  return [first, middle, totalYears];
+}
+
+function renderMilestones(state, els, translations) {
+  const t = translations[state.lang];
+  const years = milestoneYears(state.years);
+  const targets = [
+    [els.milestone1Year, els.milestone1Value, els.milestone1Gain],
+    [els.milestone2Year, els.milestone2Value, els.milestone2Gain],
+    [els.milestone3Year, els.milestone3Value, els.milestone3Gain]
+  ];
+
+  years.forEach((year, index) => {
+    const projection = projectSavings(state, year);
+    const gain = Math.max(0, projection.value - projection.invested);
+    const [yearEl, valueEl, gainEl] = targets[index];
+    yearEl.textContent = `${year} ${year === 1 ? (state.lang === 'fr' ? 'an' : 'year') : t.years}`;
+    valueEl.textContent = formatCHF(projection.value);
+    gainEl.textContent = `+ ${formatCHF(gain)}`;
+  });
+}
+
 export function setRangeFill(input) {
   const min = Number(input.min), max = Number(input.max), value = Number(input.value);
   input.style.setProperty('--pct', `${((value - min) / (max - min)) * 100}%`);
@@ -40,7 +64,6 @@ export function renderLanguage(state, els, translations) {
   document.documentElement.lang = state.lang;
   els.languageBtn.textContent = state.lang.toUpperCase();
   els.estimatedLabel.textContent = t.estimatedLabel;
-  els.encouragement.textContent = t.encouragement;
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.dataset.i18n;
     if (t[key]) element.textContent = t[key];
@@ -82,6 +105,8 @@ export function render(state, els, translations) {
   els.investedValue.textContent = formatCHF(summary.invested);
   els.gainValue.textContent = formatCHF(summary.gains);
   els.performanceValue.textContent = `${summary.performance.toFixed(1)} %`;
+  els.timeGainValue.textContent = `+ ${formatCHF(Math.max(0, summary.gains))}`;
+  els.heroDuration.textContent = `${state.years} ${t.years}`;
   els.initialValue.textContent = formatCHF(state.initial);
   els.monthlyValue.textContent = formatCHF(state.monthly);
   els.returnValue.textContent = `${state.annualReturn.toFixed(1)} % / ${t.perYear}`;
@@ -94,7 +119,7 @@ export function render(state, els, translations) {
   els.goalDate.textContent = date === 'done' ? t.goalReached : (date || t.goalNotReached);
   els.growthNote.textContent = t.growthNote.replace('{amount}', formatCHF(Math.max(0, summary.gains)));
 
+  renderMilestones(state, els, translations);
   setRangeFill(els.initialCapital);
   setRangeFill(els.monthly);
-  renderChart(state, els, translations);
 }
