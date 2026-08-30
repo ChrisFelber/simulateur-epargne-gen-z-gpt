@@ -74,9 +74,14 @@ export function renderLanguage(state, els, translations) {
 
 export function renderBoostPreview(state, els, translations, boost) {
   const t = translations[state.lang];
+  els.boostPreview.hidden = false;
+
   if (!boost) {
-    els.boostPreview.hidden = true;
     els.boostOptions.querySelectorAll('.boost-btn').forEach(button => button.classList.remove('active'));
+    els.boostResult.textContent = t.selectBoostPrompt;
+    els.boostTimeSaved.textContent = t.selectBoostHint;
+    els.applyBoostBtn.dataset.boost = '';
+    els.applyBoostBtn.disabled = true;
     return;
   }
 
@@ -86,16 +91,16 @@ export function renderBoostPreview(state, els, translations, boost) {
     button.classList.toggle('active', Number(button.dataset.boost) === boost);
   });
 
-  els.boostPreview.hidden = false;
   els.boostResult.textContent = `${t.withMonthly.replace('{amount}', formatCHF(scenario.newMonthly))} → ${date === 'done' ? t.goalReached : (date || t.goalNotReached)}`;
   if (scenario.monthsSaved === null || scenario.monthsSaved === 0) {
-    els.boostTimeSaved.textContent = '';
+    els.boostTimeSaved.textContent = t.noTimeSaved;
   } else if (scenario.monthsSaved === 1) {
     els.boostTimeSaved.textContent = t.oneMonthSaved;
   } else {
     els.boostTimeSaved.textContent = t.monthsSaved.replace('{months}', scenario.monthsSaved);
   }
   els.applyBoostBtn.dataset.boost = String(boost);
+  els.applyBoostBtn.disabled = false;
 }
 
 export function render(state, els, translations) {
