@@ -10,7 +10,7 @@ function addSvgElement(parent, tag, attributes, text = '') {
 }
 
 export function renderChart(state, els, translations) {
-  const W = 720, H = 320, left = 58, right = 18, top = 24, bottom = 45;
+  const W = 720, H = 260, left = 58, right = 18, top = 20, bottom = 38;
   const plotW = W - left - right, plotH = H - top - bottom;
   const points = getProjectionSeries(state);
   const maxValue = Math.max(...points.map(point => point.value));
@@ -38,7 +38,7 @@ export function renderChart(state, els, translations) {
     addSvgElement(els.chartGrid, 'line', { class: 'grid-line', x1: left, y1: yy, x2: W - right, y2: yy });
     addSvgElement(els.chartGrid, 'text', { class: 'axis-label', x: left - 12, y: yy + 4, 'text-anchor': 'end' }, value === 0 ? '0' : `${Math.round(value / 1000)}k`);
   }
-  [0, Math.round(state.years / 2), state.years].forEach(tick => addSvgElement(els.chartGrid, 'text', { class: 'axis-label', x: x(tick), y: H - 15, 'text-anchor': 'middle' }, String(tick)));
-  addSvgElement(els.chartGrid, 'text', { class: 'axis-label', x: left - 12, y: 14, 'text-anchor': 'end' }, 'CHF');
-  addSvgElement(els.chartGrid, 'text', { class: 'axis-label', x: W - right, y: H - 15, 'text-anchor': 'end' }, translations[state.lang].years);
+  [0, Math.round(state.years / 2), state.years].forEach(tick => addSvgElement(els.chartGrid, 'text', { class: 'axis-label', x: x(tick), y: H - 12, 'text-anchor': 'middle' }, String(tick)));
+  addSvgElement(els.chartGrid, 'text', { class: 'axis-label', x: left - 12, y: 13, 'text-anchor': 'end' }, 'CHF');
+  addSvgElement(els.chartGrid, 'text', { class: 'axis-label', x: W - right, y: H - 12, 'text-anchor': 'end' }, translations[state.lang].years);
 }
