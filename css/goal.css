@@ -1,0 +1,9 @@
+.goal-editor{grid-column:1/-1;display:grid;grid-template-columns:1fr .65fr auto;gap:10px;align-items:end;padding:14px;border:1px solid var(--line);border-radius:17px;background:#fbf9ff}
+.goal-editor[hidden]{display:none}
+.goal-editor label{display:grid;gap:6px;color:#77768a;font-size:11px;font-weight:750}
+.goal-editor input{width:100%;min-width:0;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;color:#111827}
+.goal-editor-actions{display:flex;gap:8px}
+.goal-cancel-btn,.goal-save-btn{border:0;border-radius:12px;padding:11px 13px;font-weight:850}
+.goal-cancel-btn{background:#eceaf2;color:#2c2c38}
+.goal-save-btn{background:linear-gradient(135deg,#8938ff,#ef45cb);color:#fff}
+@media(max-width:620px){.goal-editor-actions button{flex:1}}
