@@ -86,14 +86,50 @@
       </div>
 
       <div class="goal-card">
-        <div class="goal-emoji">🎯</div>
-        <div>
-          <div class="goal-title" data-i18n="goal">Ton objectif</div>
-          <div class="goal-name" data-i18n="worldTrip">Un voyage autour du monde ✈️</div>
-          <div class="progress-track"><div class="progress-bar" id="goalProgress"></div></div>
-          <div class="goal-numbers" id="goalNumbers">CHF 22'071 / 30'000</div>
+        <div class="goal-main">
+          <div class="goal-visual" id="goalPlant" aria-hidden="true">🌱</div>
+          <div class="goal-content">
+            <div class="goal-title" data-i18n="goal">Ton objectif</div>
+            <div class="goal-name" data-i18n="worldTrip">Un voyage autour du monde ✈️</div>
+            <div class="goal-progress-row">
+              <div class="progress-track"><div class="progress-bar" id="goalProgress"></div></div>
+              <div class="goal-percent" id="goalPercent">73%</div>
+            </div>
+            <div class="goal-numbers" id="goalNumbers">CHF 22'071 / CHF 30'000</div>
+          </div>
         </div>
-        <div class="goal-percent" id="goalPercent">73%</div>
+
+        <div class="goal-insight">
+          <div class="goal-insight-icon">✨</div>
+          <div>
+            <div class="goal-insight-label" data-i18n="estimatedGoalDate">À ton rythme actuel</div>
+            <div class="goal-insight-value" id="goalDate">—</div>
+          </div>
+        </div>
+
+        <div class="goal-growth-note">
+          <span>🌱</span>
+          <span id="growthNote">CHF 5'071 ont poussé tout seuls grâce au temps.</span>
+        </div>
+
+        <div class="goal-boost">
+          <div>
+            <div class="goal-boost-title" data-i18n="boostTitle">🚀 Fais-le arriver plus vite</div>
+            <div class="goal-boost-subtitle" data-i18n="boostSubtitle">Teste un petit effort mensuel, sans modifier tes paramètres.</div>
+          </div>
+          <div class="boost-options" id="boostOptions">
+            <button class="boost-btn" data-boost="10">+10 CHF</button>
+            <button class="boost-btn" data-boost="25">+25 CHF</button>
+            <button class="boost-btn" data-boost="50">+50 CHF</button>
+          </div>
+          <div class="boost-preview" id="boostPreview" hidden>
+            <div class="boost-preview-copy">
+              <span id="boostResult">—</span>
+              <strong id="boostTimeSaved">—</strong>
+            </div>
+            <button class="apply-boost-btn" id="applyBoostBtn" data-i18n="applyBoost">Appliquer</button>
+          </div>
+        </div>
       </div>
     </section>
 
