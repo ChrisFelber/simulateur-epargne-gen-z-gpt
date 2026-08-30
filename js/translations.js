@@ -1,35 +1,4 @@
 export const translations={
-fr:{
-  estimatedLabel:"Tu pourrais avoir",encouragement:"⭐ Bien joué ! Ton argent bosse aussi pour toi 💪",
-  invested:"Tu as mis",gains:"Ton argent a gagné",performance:"Ce que ça a rapporté",
-  savingsTime:"Regarde ton argent grandir",subtitle:"Ton épargne au fil du temps",
-  chartDisclaimer:"Les performances passées ne préjugent pas des performances futures.",
-  goal:"Ton projet",worldTrip:"Ton grand voyage ✈️",defineGoal:"Définir mon objectif",
-  goalNameLabel:"Mon projet",goalAmountLabel:"Montant visé",cancel:"Annuler",saveGoal:"Enregistrer",
-  estimatedGoalDate:"Date estimée",boostTitle:"Et si tu mettais plus ?",boostSubtitle:"Booste ton épargne et atteins ton objectif plus vite.",
-  applyBoost:"Je le fais",settings:"Tes paramètres",settingsHint:"Ajuste les paramètres de ta simulation.",
-  initialCapital:"Ton départ",monthly:"Versement mensuel",strategy:"Style d’investissement",
-  income:"Prudent",balanced:"Équilibré",growth:"Dynamique",stocks:"100 % actions",
-  disclaimer:"C’est une simulation : les rendements futurs peuvent être différents.",years:"ans",perYear:"an",
-  growthNote:"{amount} gagnés grâce au temps.",goalReached:"Projet déjà atteint 🎉",
-  goalNotReached:"Ton projet demande encore un peu plus de temps",withMonthly:"Avec {amount}/mois",
-  monthsSaved:"{months} mois gagnés",oneMonthSaved:"1 mois gagné",
-  timeSavedDetail:"Objectif atteint {months} mois plus tôt !",oneMonthSavedDetail:"Objectif atteint 1 mois plus tôt !"
-},
-en:{
-  estimatedLabel:"You could have",encouragement:"⭐ Nice! Your money is working too 💪",
-  invested:"You put in",gains:"Your money earned",performance:"What it earned",
-  savingsTime:"Watch your money grow",subtitle:"Your savings over time",
-  chartDisclaimer:"Past performance does not guarantee future results.",
-  goal:"Your goal",worldTrip:"Your big trip ✈️",defineGoal:"Set my goal",
-  goalNameLabel:"My goal",goalAmountLabel:"Target amount",cancel:"Cancel",saveGoal:"Save",
-  estimatedGoalDate:"Estimated date",boostTitle:"What if you put in more?",boostSubtitle:"Boost your savings and reach your goal faster.",
-  applyBoost:"I'll do it",settings:"Your settings",settingsHint:"Adjust your simulation settings.",
-  initialCapital:"Starting amount",monthly:"Monthly contribution",strategy:"Investment style",
-  income:"Careful",balanced:"Balanced",growth:"Dynamic",stocks:"100% stocks",
-  disclaimer:"This is a simulation: future returns may be different.",years:"years",perYear:"year",
-  growthNote:"{amount} earned thanks to time.",goalReached:"Goal already reached 🎉",
-  goalNotReached:"Your goal needs a little more time",withMonthly:"With {amount}/month",
-  monthsSaved:"{months} months saved",oneMonthSaved:"1 month saved",
-  timeSavedDetail:"Goal reached {months} months sooner!",oneMonthSavedDetail:"Goal reached 1 month sooner!"
-}};
+fr:{desktopTagline:"Fais grandir tes projets, petit à petit.",settingsHint:"Bouge les curseurs et regarde ce que ça change.",estimatedLabel:"Tu pourrais avoir",encouragement:"⭐ Bien joué ! Ton argent bosse aussi pour toi 💪",invested:"Tu as mis",gains:"Ton argent a gagné",performance:"Ce que ça a rapporté",evolution:"Ton évolution",savingsTime:"Regarde ton argent grandir",subtitle:"Change les réglages et vois ce que le temps peut faire 🌱",totalSavings:"Ce que tu pourrais avoir",goal:"Ton projet",worldTrip:"Ton grand voyage ✈️",estimatedGoalDate:"À ce rythme",boostTitle:"🚀 Et si tu mettais plus ?",boostSubtitle:"Teste un boost par mois, juste pour voir.",applyBoost:"Je le fais",growthNote:"{amount} ont été gagnés grâce au temps.",goalReached:"Projet déjà atteint 🎉",goalNotReached:"Ton projet demande encore un peu plus de temps",monthsSaved:"{months} mois gagnés",oneMonthSaved:"1 mois gagné",withMonthly:"Avec {amount}/mois",settings:"À toi de jouer",initialCapital:"Ton départ",monthly:"Chaque mois",strategy:"Style d’investissement",income:"Prudent",balanced:"Équilibré",growth:"Dynamique",stocks:"100 % actions",disclaimer:"C’est une simulation : les rendements futurs peuvent être différents.",years:"ans",perYear:"an"},
+en:{desktopTagline:"Grow your plans, little by little.",settingsHint:"Move the sliders and see what changes.",estimatedLabel:"You could have",encouragement:"⭐ Nice! Your money is working too 💪",invested:"You put in",gains:"Your money earned",performance:"What it earned",evolution:"Your progress",savingsTime:"Watch your money grow",subtitle:"Change the settings and see what time can do 🌱",totalSavings:"What you could have",goal:"Your plan",worldTrip:"Your big trip ✈️",estimatedGoalDate:"At this pace",boostTitle:"🚀 What if you put in more?",boostSubtitle:"Try a monthly boost, just to see.",applyBoost:"I'll do it",growthNote:"{amount} was earned thanks to time.",goalReached:"Plan already reached 🎉",goalNotReached:"Your plan needs a little more time",monthsSaved:"{months} months saved",oneMonthSaved:"1 month saved",withMonthly:"With {amount}/month",settings:"Your turn",initialCapital:"Your starting point",monthly:"Each month",strategy:"Investment style",income:"Careful",balanced:"Balanced",growth:"Dynamic",stocks:"100% stocks",disclaimer:"This is a simulation: future returns may be different.",years:"years",perYear:"year"}
+};

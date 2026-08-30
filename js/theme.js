@@ -1,7 +1,11 @@
-export function initializeTheme(){
-  if(localStorage.getItem('bloom-theme')==='dark') document.body.classList.add('dark');
+const STORAGE_KEY = 'bloom-theme';
+
+export function initializeTheme() {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved === 'dark') document.body.classList.add('dark');
 }
-export function toggleTheme(){
+
+export function toggleTheme() {
   document.body.classList.toggle('dark');
-  localStorage.setItem('bloom-theme',document.body.classList.contains('dark')?'dark':'light');
+  localStorage.setItem(STORAGE_KEY, document.body.classList.contains('dark') ? 'dark' : 'light');
 }
