@@ -1,5 +1,5 @@
 import { translations } from './translations.js';
-import { getElements, render, renderLanguage } from './ui.js';
+import { getElements, render, renderLanguage, renderBoostPreview } from './ui.js';
 import { initializeTheme, toggleTheme } from './theme.js';
 
 const state = {
@@ -8,23 +8,32 @@ const state = {
   years: 10,
   annualReturn: 6,
   goal: 30000,
-  lang: localStorage.getItem('bloom-lang') || 'fr'
+  lang: localStorage.getItem('bloom-lang') || 'fr',
+  selectedBoost: null
 };
 
 const els = getElements();
 
 function rerender() {
   render(state, els, translations);
+  renderBoostPreview(state, els, translations, state.selectedBoost);
+}
+
+function resetBoostPreview() {
+  state.selectedBoost = null;
+  renderBoostPreview(state, els, translations, null);
 }
 
 function bindEvents() {
   els.initialCapital.addEventListener('input', event => {
     state.initial = Number(event.target.value);
+    resetBoostPreview();
     rerender();
   });
 
   els.monthly.addEventListener('input', event => {
     state.monthly = Number(event.target.value);
+    resetBoostPreview();
     rerender();
   });
 
@@ -39,6 +48,24 @@ function bindEvents() {
     document.querySelectorAll('.strategy-btn').forEach(item => item.classList.remove('active'));
     button.classList.add('active');
     state.annualReturn = Number(button.dataset.return);
+    resetBoostPreview();
+    rerender();
+  });
+
+  els.boostOptions.addEventListener('click', event => {
+    const button = event.target.closest('.boost-btn');
+    if (!button) return;
+    const boost = Number(button.dataset.boost);
+    state.selectedBoost = state.selectedBoost === boost ? null : boost;
+    renderBoostPreview(state, els, translations, state.selectedBoost);
+  });
+
+  els.applyBoostBtn.addEventListener('click', () => {
+    const boost = Number(els.applyBoostBtn.dataset.boost || 0);
+    if (!boost) return;
+    state.monthly = Math.min(Number(els.monthly.max), state.monthly + boost);
+    els.monthly.value = String(state.monthly);
+    resetBoostPreview();
     rerender();
   });
 
