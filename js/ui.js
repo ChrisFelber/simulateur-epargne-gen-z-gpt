@@ -23,8 +23,8 @@ function formatGoalDate(months, lang) {
 }
 
 function getPlantStage(progress) {
-  if (progress >= 100) return '✨';
-  if (progress >= 80) return '🌸';
+  if (progress >= 100) return '🏁';
+  if (progress >= 80) return '🌳';
   if (progress >= 50) return '🪴';
   if (progress >= 20) return '🌿';
   return '🌱';
