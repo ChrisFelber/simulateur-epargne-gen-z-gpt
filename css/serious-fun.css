@@ -16,7 +16,6 @@
 }
 .hero:before,.hero:after{background:rgba(255,255,255,.08)}
 
-/* Hero v2: denser, more social-first, less empty */
 .hero-v2{min-height:auto;gap:22px;padding:28px 28px 24px}
 .hero-topline{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .hero-chip,.hero-duration{display:inline-flex;align-items:center;border-radius:999px;font-weight:850;letter-spacing:.055em;text-transform:uppercase}
@@ -45,7 +44,6 @@
 .stats-v2 .stat-value.green{color:var(--electric)}
 .stats-v2 .stat:not(:last-child):after{background:rgba(255,255,255,.11)}
 
-/* Replace the chart with milestone cards */
 .unlock-panel{overflow:hidden}
 .unlock-heading-row{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
 .unlock-panel .panel-kicker{color:var(--serious-blue)}
@@ -71,7 +69,48 @@
 .unlock-insight{display:flex;align-items:center;gap:10px;margin-top:14px;padding:13px 15px;border-radius:16px;background:#eef5ff;color:#29466e;font-size:12px;font-weight:700}
 .unlock-icon{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:#fff;color:#2457d6;box-shadow:0 5px 14px rgba(36,87,214,.08)}
 
-/* Existing components aligned with the new visual language */
+/* Cards 3 & 4: same visual system as the new hero/projection */
+.workspace{grid-template-areas:"hero evolution" "project evolution" "boost settings"}
+.project-panel{grid-area:project;overflow:hidden;background:linear-gradient(180deg,#fff 0%,#f8fbff 100%)}
+.boost-panel-v2{grid-area:boost;overflow:hidden;background:linear-gradient(145deg,#17305d 0%,#2457d6 58%,#159f9a 100%);color:#fff;border-color:transparent}
+.card-heading-row{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.card-heading-row h2{margin-top:3px}
+.card-number{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:#eef4ff;color:#2457d6;font-size:12px;font-weight:950;letter-spacing:.08em}
+.boost-panel-v2 .card-number{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.13);color:#fff}
+.boost-panel-v2 .panel-kicker{color:var(--electric)}
+.boost-panel-v2 h2{color:#fff}
+.boost-panel-v2 .subtitle{color:#dce8ff}
+
+.project-snapshot{margin-top:20px;display:grid;gap:14px}
+.project-main-row{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center;padding:16px;border:1px solid #e6ebf4;border-radius:20px;background:#fff;box-shadow:0 10px 24px rgba(34,60,104,.05)}
+.goal-visual-v2{width:58px;height:58px;border-radius:18px;font-size:31px;background:linear-gradient(145deg,#eaf5ff,#eafbf5);box-shadow:none}
+.project-panel .goal-title{font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.project-panel .goal-name{font-size:18px;margin-top:2px}
+.project-panel .goal-progress-row{margin-top:12px}
+.project-panel .progress-track{height:9px;background:#e7eef8}
+.project-panel .progress-bar{background:linear-gradient(90deg,#2457d6,#14a59a)}
+.project-panel .goal-percent{background:#17305d}
+.project-insights-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.project-insight-card{display:flex;align-items:center;gap:11px;padding:13px 14px;border-radius:17px;background:#eef5ff;color:#29466e}
+.project-growth{background:#edf9f4}
+.project-insight-icon{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;flex:0 0 auto;background:#fff;box-shadow:0 5px 14px rgba(36,87,214,.07)}
+.project-growth-value{margin-top:2px;color:#1d6c4b;font-size:11px;line-height:1.35;font-weight:800}
+
+.boost-stage{margin-top:20px;display:grid;gap:14px}
+.boost-copy-block{display:grid;gap:10px}
+.boost-mini-label{font-size:9px;letter-spacing:.10em;font-weight:950;color:#9fb9df}
+.boost-panel-v2 .boost-mini-label{color:#bcd1ef}
+.boost-options-v2{grid-template-columns:repeat(3,1fr);gap:9px}
+.boost-btn-v2{min-height:78px;display:grid;grid-template-columns:auto 1fr;grid-template-areas:"plus value" "plus meta";column-gap:8px;align-content:center;text-align:left;padding:12px 13px;border-radius:17px;border:1px solid rgba(255,255,255,.14);background:rgba(7,28,58,.25);color:#fff;backdrop-filter:blur(10px)}
+.boost-btn-v2 span{grid-area:plus;align-self:center;font-size:22px;color:var(--electric);font-weight:700}
+.boost-btn-v2 strong{grid-area:value;font-size:14px}
+.boost-btn-v2 small{grid-area:meta;color:#bcd1ef;font-size:9px}
+.boost-btn-v2.active{border-color:var(--electric);color:#fff;background:rgba(112,240,214,.12);box-shadow:0 0 0 3px rgba(112,240,214,.10)}
+.boost-preview-v2{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 15px;border-radius:18px;background:rgba(4,20,47,.28);border:1px solid rgba(255,255,255,.12)}
+.boost-preview-v2 .boost-preview-copy{gap:3px;color:#dce8ff}
+.boost-preview-v2 .boost-preview-copy strong{color:var(--electric)}
+.apply-boost-v2{background:#fff;color:#17305d;border-radius:13px;padding:11px 14px;font-weight:900}
+
 .panel-kicker,.goal-title{color:var(--serious-blue)}
 .goal-visual{background:#eef6f0;color:#1d7e44;box-shadow:0 10px 24px rgba(23,48,93,.08)}
 .progress-track{background:#e7eef8}
@@ -82,14 +121,15 @@
 .apply-boost-btn{background:var(--serious-blue)}
 .strategy-btn.active{border-color:var(--serious-blue);box-shadow:0 0 0 3px rgba(36,87,214,.10);color:var(--serious-blue)}
 .panel{border:1px solid rgba(67,91,130,.08)}
-.goal-card{border-radius:20px}
 .circle-btn{border-color:rgba(50,71,110,.14)}
 
-body.dark .milestone-card{background:#171f31;border-color:#2a3348;color:#fff}
-body.dark .milestone-value{color:#fff}
+body.dark .milestone-card,body.dark .project-main-row{background:#171f31;border-color:#2a3348;color:#fff}
+body.dark .milestone-value,body.dark .project-panel .goal-name{color:#fff}
 body.dark .milestone-caption{color:#aebbd0}
 body.dark .milestone-meta{border-color:#2a3348;color:#8998ae}
-body.dark .unlock-insight{background:#19263d;color:#d9e6f8}
+body.dark .unlock-insight,body.dark .project-insight-card{background:#19263d;color:#d9e6f8}
+body.dark .project-growth{background:#183029}
+body.dark .project-panel{background:#141c2c}
 
 @media(max-width:900px){
   .hero-main-row{grid-template-columns:minmax(0,1fr) 135px}
@@ -126,5 +166,13 @@ body.dark .unlock-insight{background:#19263d;color:#d9e6f8}
   .milestone-top{grid-area:top}.milestone-value{grid-area:value;font-size:23px;margin-top:13px}.milestone-caption{grid-area:caption;font-size:10.5px}.milestone-meta{grid-area:meta;align-self:end;display:grid;justify-items:end;border-top:0;margin:0;padding:0;font-size:9px}.milestone-meta strong{font-size:10.5px}
   .unlock-insight{font-size:10.5px;padding:11px 12px}
   .panel{border-radius:24px}
-  .goal-visual{border-radius:16px}
+  .project-main-row{grid-template-columns:50px 1fr;padding:14px}
+  .goal-visual-v2{width:46px;height:46px;border-radius:15px;font-size:26px}
+  .project-insights-grid{grid-template-columns:1fr}
+  .card-number{width:36px;height:36px;border-radius:12px;font-size:10px}
+  .boost-options-v2{grid-template-columns:1fr}
+  .boost-btn-v2{min-height:58px;grid-template-columns:28px 1fr auto;grid-template-areas:"plus value meta";align-items:center}
+  .boost-btn-v2 small{align-self:center}
+  .boost-preview-v2{align-items:flex-start;flex-direction:column}
+  .apply-boost-v2{width:100%}
 }
