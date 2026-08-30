@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#f6f9ff" />
-  <title>bloom. — Simulateur d'épargne</title>
+  <title>bloom. — Fais grandir tes projets</title>
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/layout.css" />
   <link rel="stylesheet" href="css/components.css" />
@@ -16,7 +16,7 @@
     <header class="topbar">
       <div>
         <div class="logo">bloom<span class="logo-dot">.</span></div>
-        <div class="desktop-tagline" data-i18n="desktopTagline">Fais pousser ton futur, un mois après l'autre.</div>
+        <div class="desktop-tagline" data-i18n="desktopTagline">Fais grandir tes projets, petit à petit.</div>
       </div>
       <div class="top-actions">
         <button class="circle-btn" id="languageBtn" aria-label="Changer la langue">FR</button>
@@ -27,9 +27,9 @@
     <div class="workspace">
       <section class="hero" aria-labelledby="heroTitle">
         <div class="hero-copy">
-          <p class="eyebrow" id="estimatedLabel">Valeur estimée de ton épargne</p>
+          <p class="eyebrow" id="estimatedLabel">Tu pourrais avoir</p>
           <h1 class="hero-value" id="heroTitle">CHF 22'071</h1>
-          <div class="encouragement" id="encouragement">⭐ Super ! Tu es en avance sur ton objectif 💪</div>
+          <div class="encouragement" id="encouragement">⭐ Bien joué ! Ton argent bosse aussi pour toi 💪</div>
         </div>
 
         <div class="plant-wrap" aria-hidden="true">
@@ -40,28 +40,28 @@
         <div class="stats">
           <div class="stat">
             <div class="stat-icon">👛</div>
-            <div class="stat-label" data-i18n="invested">Capital investi</div>
+            <div class="stat-label" data-i18n="invested">Tu as mis</div>
             <div class="stat-value" id="investedValue">CHF 17'000</div>
           </div>
           <div class="stat">
             <div class="stat-icon">📈</div>
-            <div class="stat-label" data-i18n="gains">Gains générés</div>
+            <div class="stat-label" data-i18n="gains">Ton argent a gagné</div>
             <div class="stat-value" id="gainValue">CHF 5'071</div>
           </div>
           <div class="stat">
             <div class="stat-icon">🌱</div>
-            <div class="stat-label" data-i18n="performance">Performance</div>
+            <div class="stat-label" data-i18n="performance">Ce que ça a rapporté</div>
             <div class="stat-value green" id="performanceValue">29.8 %</div>
           </div>
         </div>
       </section>
 
       <section class="panel evolution-panel">
-        <div class="panel-kicker" data-i18n="evolution">Évolution</div>
+        <div class="panel-kicker" data-i18n="evolution">Ton évolution</div>
         <div class="panel-title-row">
           <div>
-            <h2 data-i18n="savingsTime">Ton épargne dans le temps</h2>
-            <p class="subtitle" data-i18n="subtitle">Plus tu commences tôt, plus ton avenir grandit 🌱</p>
+            <h2 data-i18n="savingsTime">Regarde ton argent grandir</h2>
+            <p class="subtitle" data-i18n="subtitle">Change les réglages et vois ce que le temps peut faire 🌱</p>
           </div>
           <select class="years-select" id="yearsSelect" aria-label="Durée">
             <option value="5">5 ans</option>
@@ -73,8 +73,8 @@
         </div>
 
         <div class="legend">
-          <div class="legend-item"><span class="legend-line"></span><span data-i18n="totalSavings">Épargne totale</span></div>
-          <div class="legend-item"><span class="legend-line dashed"></span><span data-i18n="invested">Capital investi</span></div>
+          <div class="legend-item"><span class="legend-line"></span><span data-i18n="totalSavings">Ce que tu pourrais avoir</span></div>
+          <div class="legend-item"><span class="legend-line dashed"></span><span data-i18n="invested">Tu as mis</span></div>
         </div>
 
         <div class="chart-wrap">
@@ -93,8 +93,8 @@
           <div class="goal-main">
             <div class="goal-visual" id="goalPlant" aria-hidden="true">🌱</div>
             <div class="goal-content">
-              <div class="goal-title" data-i18n="goal">Ton objectif</div>
-              <div class="goal-name" data-i18n="worldTrip">Un voyage autour du monde ✈️</div>
+              <div class="goal-title" data-i18n="goal">Ton projet</div>
+              <div class="goal-name" data-i18n="worldTrip">Ton grand voyage ✈️</div>
               <div class="goal-progress-row">
                 <div class="progress-track"><div class="progress-bar" id="goalProgress"></div></div>
                 <div class="goal-percent" id="goalPercent">73%</div>
@@ -106,20 +106,20 @@
           <div class="goal-insight">
             <div class="goal-insight-icon">✨</div>
             <div>
-              <div class="goal-insight-label" data-i18n="estimatedGoalDate">À ton rythme actuel</div>
+              <div class="goal-insight-label" data-i18n="estimatedGoalDate">À ce rythme</div>
               <div class="goal-insight-value" id="goalDate">—</div>
             </div>
           </div>
 
           <div class="goal-growth-note">
             <span>🌱</span>
-            <span id="growthNote">CHF 5'071 ont poussé tout seuls grâce au temps.</span>
+            <span id="growthNote">CHF 5'071 ont été gagnés grâce au temps.</span>
           </div>
 
           <div class="goal-boost">
             <div>
-              <div class="goal-boost-title" data-i18n="boostTitle">🚀 Fais-le arriver plus vite</div>
-              <div class="goal-boost-subtitle" data-i18n="boostSubtitle">Teste un petit effort mensuel, sans modifier tes paramètres.</div>
+              <div class="goal-boost-title" data-i18n="boostTitle">🚀 Et si tu mettais un peu plus ?</div>
+              <div class="goal-boost-subtitle" data-i18n="boostSubtitle">Teste un petit boost par mois, juste pour voir.</div>
             </div>
             <div class="boost-options" id="boostOptions">
               <button class="boost-btn" data-boost="10">+10 CHF</button>
@@ -131,7 +131,7 @@
                 <span id="boostResult">—</span>
                 <strong id="boostTimeSaved">—</strong>
               </div>
-              <button class="apply-boost-btn" id="applyBoostBtn" data-i18n="applyBoost">Appliquer</button>
+              <button class="apply-boost-btn" id="applyBoostBtn" data-i18n="applyBoost">Je le fais</button>
             </div>
           </div>
         </div>
@@ -140,31 +140,31 @@
       <section class="panel settings-panel">
         <div class="settings-head">
           <div>
-            <div class="settings-title" data-i18n="settings">Paramètres</div>
-            <div class="settings-hint" data-i18n="settingsHint">Change 3 choses et vois immédiatement l'impact.</div>
+            <div class="settings-title" data-i18n="settings">À toi de jouer</div>
+            <div class="settings-hint" data-i18n="settingsHint">Bouge les curseurs et regarde ce que ça change.</div>
           </div>
         </div>
         <div class="control">
-          <div class="control-head"><span class="control-label" data-i18n="initialCapital">Capital initial</span><span class="control-value" id="initialValue">CHF 5'000</span></div>
+          <div class="control-head"><span class="control-label" data-i18n="initialCapital">Ton départ</span><span class="control-value" id="initialValue">CHF 5'000</span></div>
           <input id="initialCapital" type="range" min="0" max="50000" step="500" value="5000" />
         </div>
         <div class="control">
-          <div class="control-head"><span class="control-label" data-i18n="monthly">Versement mensuel</span><span class="control-value" id="monthlyValue">CHF 100</span></div>
+          <div class="control-head"><span class="control-label" data-i18n="monthly">Chaque mois</span><span class="control-value" id="monthlyValue">CHF 100</span></div>
           <input id="monthly" type="range" min="0" max="2000" step="5" value="100" />
         </div>
         <div class="control">
-          <div class="control-head"><span class="control-label" data-i18n="strategy">Stratégie</span><span class="control-value" id="returnValue">6.0 % / an</span></div>
+          <div class="control-head"><span class="control-label" data-i18n="strategy">Style d’investissement</span><span class="control-value" id="returnValue">6.0 % / an</span></div>
           <div class="strategy-grid" id="strategyGrid">
-            <button class="strategy-btn" data-return="2.5" data-key="income">Revenu</button>
+            <button class="strategy-btn" data-return="2.5" data-key="income">Prudent</button>
             <button class="strategy-btn" data-return="4" data-key="balanced">Équilibré</button>
-            <button class="strategy-btn active" data-return="6" data-key="growth">Croissance</button>
-            <button class="strategy-btn" data-return="7.5" data-key="stocks">Actions</button>
+            <button class="strategy-btn active" data-return="6" data-key="growth">Dynamique</button>
+            <button class="strategy-btn" data-return="7.5" data-key="stocks">100 % actions</button>
           </div>
         </div>
       </section>
     </div>
 
-    <p class="footer-note" data-i18n="disclaimer">Simulation indicative : les rendements futurs ne sont pas garantis.</p>
+    <p class="footer-note" data-i18n="disclaimer">C’est une simulation : les rendements futurs peuvent être différents.</p>
   </main>
   <script type="module" src="js/app.js"></script>
 </body>
