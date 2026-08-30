@@ -5,56 +5,126 @@
   --serious-teal:#14a59a;
   --serious-green:#239a54;
   --serious-soft:#edf4ff;
+  --electric:#70f0d6;
 }
 
-/* Keep the interface lively without the pink/lilac lifestyle feel */
 .hero{
   background:
-    radial-gradient(circle at 84% 15%,rgba(255,255,255,.18),transparent 24%),
-    linear-gradient(135deg,#5da9e9 0%,#4878db 48%,#42b7b0 100%);
+    radial-gradient(circle at 88% 14%,rgba(112,240,214,.22),transparent 23%),
+    radial-gradient(circle at 73% 80%,rgba(83,132,255,.25),transparent 30%),
+    linear-gradient(135deg,#17305d 0%,#2457d6 58%,#159f9a 100%);
 }
-.hero:before,.hero:after{background:rgba(255,255,255,.10)}
-.encouragement{background:rgba(255,255,255,.82);color:#17305d;border:1px solid rgba(255,255,255,.32)}
+.hero:before,.hero:after{background:rgba(255,255,255,.08)}
 
-.stat:nth-child(1) .stat-icon{background:#edf4ff}
-.stat:nth-child(2) .stat-icon{background:#e8f1ff}
-.stat:nth-child(3) .stat-icon{background:#e8f8ef}
+/* Hero v2: denser, more social-first, less empty */
+.hero-v2{min-height:auto;gap:22px;padding:28px 28px 24px}
+.hero-topline{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.hero-chip,.hero-duration{display:inline-flex;align-items:center;border-radius:999px;font-weight:850;letter-spacing:.055em;text-transform:uppercase}
+.hero-chip{padding:8px 11px;font-size:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);color:#e9f2ff}
+.hero-duration{padding:8px 11px;font-size:11px;color:#17305d;background:#fff}
+.hero-main-row{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) 170px;gap:18px;align-items:center}
+.hero-v2 .hero-copy{padding-right:0;max-width:none}
+.hero-v2 .eyebrow{margin-bottom:7px;color:#dbe7ff}
+.hero-v2 .hero-value{font-size:clamp(48px,5vw,76px);line-height:.92;letter-spacing:-3.2px}
+.hero-punchline{max-width:430px;margin:15px 0 0;color:#eaf2ff;font-size:clamp(13px,1vw,16px);line-height:1.45;font-weight:650}
+.time-gain-badge{display:inline-flex;align-items:center;gap:7px;margin-top:15px;padding:9px 12px;border-radius:14px;background:rgba(3,23,52,.24);border:1px solid rgba(255,255,255,.14);color:#eaf2ff;font-size:12px;backdrop-filter:blur(10px)}
+.time-gain-badge strong{color:var(--electric);font-size:13px}
+.momentum-visual{position:relative;width:160px;aspect-ratio:1;display:grid;place-items:center;justify-self:end}
+.momentum-core{position:relative;z-index:4;width:74px;height:74px;border-radius:28px;display:grid;place-items:center;background:#fff;color:#17305d;font-size:31px;font-weight:950;letter-spacing:-2px;box-shadow:0 18px 40px rgba(4,20,47,.24)}
+.momentum-orbit{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.34)}
+.orbit-one{width:122px;height:122px;transform:rotate(-18deg)}
+.orbit-two{width:154px;height:92px;transform:rotate(34deg)}
+.momentum-dot{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--electric);box-shadow:0 0 22px rgba(112,240,214,.85)}
+.dot-one{top:23px;right:29px}.dot-two{left:18px;bottom:38px;width:8px;height:8px;background:#b9ccff}
 
+.stats-v2{grid-template-columns:repeat(3,1fr);margin-top:0;background:rgba(8,31,64,.40);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(14px)}
+.stats-v2 .stat{display:flex;align-items:center;text-align:left;gap:10px;padding:13px 14px}
+.stats-v2 .stat-icon{flex:0 0 auto;width:36px;height:36px;margin:0;border-radius:12px;font-size:16px;background:rgba(255,255,255,.12)!important;color:#fff;font-weight:900}
+.stats-v2 .stat-label{display:block;min-height:0;color:#bdd0ea;font-size:10px;line-height:1.2}
+.stats-v2 .stat-value{margin-top:3px;color:#fff;font-size:15px}
+.stats-v2 .stat-value.green{color:var(--electric)}
+.stats-v2 .stat:not(:last-child):after{background:rgba(255,255,255,.11)}
+
+/* Replace the chart with milestone cards */
+.unlock-panel{overflow:hidden}
+.unlock-heading-row{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.unlock-panel .panel-kicker{color:var(--serious-blue)}
+.milestones{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.milestone-card{position:relative;overflow:hidden;min-height:190px;padding:18px;border:1px solid #e5ebf4;border-radius:22px;background:linear-gradient(180deg,#ffffff 0%,#f9fbff 100%);box-shadow:0 10px 26px rgba(34,60,104,.06);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.milestone-card:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(34,60,104,.10);border-color:#d4e0f3}
+.milestone-card:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-34px;bottom:-42px;background:radial-gradient(circle,rgba(36,87,214,.10),transparent 70%)}
+.milestone-final{background:linear-gradient(145deg,#183765 0%,#2457d6 58%,#159f9a 100%);border-color:transparent;color:#fff}
+.milestone-final:after{background:radial-gradient(circle,rgba(112,240,214,.28),transparent 70%)}
+.milestone-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.level-pill{display:inline-flex;padding:6px 8px;border-radius:999px;background:#edf4ff;color:#2457d6;font-size:9px;font-weight:950;letter-spacing:.08em}
+.milestone-final .level-pill{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.13)}
+.milestone-year{font-size:12px;font-weight:850;color:#718099}
+.milestone-final .milestone-year{color:#d9e6ff}
+.milestone-value{margin-top:25px;font-size:clamp(24px,2vw,32px);font-weight:950;letter-spacing:-1.3px;color:#111f37}
+.milestone-final .milestone-value{color:#fff}
+.milestone-caption{margin-top:6px;min-height:36px;color:#56657b;font-size:12px;line-height:1.35;font-weight:650}
+.milestone-final .milestone-caption{color:#e2ecff}
+.milestone-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:18px;padding-top:12px;border-top:1px solid #e9edf4;color:#7a8799;font-size:10px}
+.milestone-meta strong{color:var(--serious-green);font-size:11px}
+.milestone-final .milestone-meta{border-color:rgba(255,255,255,.15);color:#c9d8ef}
+.milestone-final .milestone-meta strong{color:var(--electric)}
+.unlock-insight{display:flex;align-items:center;gap:10px;margin-top:14px;padding:13px 15px;border-radius:16px;background:#eef5ff;color:#29466e;font-size:12px;font-weight:700}
+.unlock-icon{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:#fff;color:#2457d6;box-shadow:0 5px 14px rgba(36,87,214,.08)}
+
+/* Existing components aligned with the new visual language */
 .panel-kicker,.goal-title{color:var(--serious-blue)}
-.legend-line.dashed{background:repeating-linear-gradient(90deg,var(--serious-blue) 0 7px,transparent 7px 13px)}
-.series-invested{stroke:var(--serious-blue)}
-.endpoint-invested{stroke:var(--serious-blue)}
-
-.goal-visual{
-  background:#eef6f0;
-  color:#1d7e44;
-  box-shadow:0 10px 24px rgba(23,48,93,.08);
-}
+.goal-visual{background:#eef6f0;color:#1d7e44;box-shadow:0 10px 24px rgba(23,48,93,.08)}
 .progress-track{background:#e7eef8}
 .progress-bar{background:linear-gradient(90deg,var(--serious-blue),var(--serious-teal))}
 .goal-percent{background:var(--serious-blue)}
 .goal-insight-icon{background:#edf4ff;color:var(--serious-blue)}
-
-.boost-btn.active{
-  border-color:var(--serious-blue);
-  color:var(--serious-blue);
-  box-shadow:0 0 0 3px rgba(36,87,214,.10);
-}
+.boost-btn.active{border-color:var(--serious-blue);color:var(--serious-blue);box-shadow:0 0 0 3px rgba(36,87,214,.10)}
 .apply-boost-btn{background:var(--serious-blue)}
-.strategy-btn.active{
-  border-color:var(--serious-blue);
-  box-shadow:0 0 0 3px rgba(36,87,214,.10);
-  color:var(--serious-blue);
-}
-
-/* Slightly more structured card language */
+.strategy-btn.active{border-color:var(--serious-blue);box-shadow:0 0 0 3px rgba(36,87,214,.10);color:var(--serious-blue)}
 .panel{border:1px solid rgba(67,91,130,.08)}
 .goal-card{border-radius:20px}
 .circle-btn{border-color:rgba(50,71,110,.14)}
 
-/* Mobile: preserve the friendly feel without becoming toy-like */
+body.dark .milestone-card{background:#171f31;border-color:#2a3348;color:#fff}
+body.dark .milestone-value{color:#fff}
+body.dark .milestone-caption{color:#aebbd0}
+body.dark .milestone-meta{border-color:#2a3348;color:#8998ae}
+body.dark .unlock-insight{background:#19263d;color:#d9e6f8}
+
+@media(max-width:900px){
+  .hero-main-row{grid-template-columns:minmax(0,1fr) 135px}
+  .momentum-visual{width:132px}
+  .milestones{grid-template-columns:1fr}
+  .milestone-card{min-height:0}
+  .milestone-value{margin-top:16px}
+  .milestone-caption{min-height:0}
+}
+
 @media(max-width:620px){
-  .hero{border-radius:26px}
+  .hero-v2{border-radius:26px;padding:20px 16px 15px;gap:16px}
+  .hero-main-row{grid-template-columns:minmax(0,1fr) 94px;gap:6px}
+  .hero-chip{font-size:8.5px;padding:7px 8px}
+  .hero-duration{font-size:9.5px;padding:7px 9px}
+  .hero-v2 .hero-value{font-size:clamp(39px,11vw,50px);letter-spacing:-2px;white-space:nowrap}
+  .hero-punchline{font-size:11.5px;margin-top:11px;max-width:92%}
+  .time-gain-badge{font-size:10px;margin-top:11px;padding:8px 9px;gap:5px}
+  .time-gain-badge strong{font-size:10.5px}
+  .momentum-visual{width:92px}
+  .momentum-core{width:48px;height:48px;border-radius:18px;font-size:22px}
+  .orbit-one{width:76px;height:76px}.orbit-two{width:94px;height:57px}.momentum-dot{width:8px;height:8px}.dot-one{top:13px;right:17px}.dot-two{left:10px;bottom:21px}
+  .stats-v2{gap:0;border-radius:18px}
+  .stats-v2 .stat{padding:10px 8px;gap:6px;display:grid;grid-template-columns:28px 1fr}
+  .stats-v2 .stat-icon{width:28px;height:28px;border-radius:9px;font-size:12px}
+  .stats-v2 .stat-label{font-size:8.5px}
+  .stats-v2 .stat-value{font-size:11px;white-space:nowrap}
+  .unlock-heading-row{align-items:flex-start}
+  .unlock-panel h2{font-size:24px}
+  .unlock-panel .subtitle{max-width:92%;font-size:11.5px}
+  .years-select{min-width:76px;font-size:10.5px;padding:8px 9px}
+  .milestones{margin-top:18px;gap:10px}
+  .milestone-card{padding:15px;border-radius:18px;display:grid;grid-template-columns:1fr auto;grid-template-areas:"top top" "value meta" "caption meta";column-gap:12px}
+  .milestone-top{grid-area:top}.milestone-value{grid-area:value;font-size:23px;margin-top:13px}.milestone-caption{grid-area:caption;font-size:10.5px}.milestone-meta{grid-area:meta;align-self:end;display:grid;justify-items:end;border-top:0;margin:0;padding:0;font-size:9px}.milestone-meta strong{font-size:10.5px}
+  .unlock-insight{font-size:10.5px;padding:11px 12px}
   .panel{border-radius:24px}
   .goal-visual{border-radius:16px}
 }
