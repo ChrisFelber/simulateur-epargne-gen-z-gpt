@@ -26,42 +26,51 @@
     </header>
 
     <div class="workspace">
-      <section class="hero" aria-labelledby="heroTitle">
-        <div class="hero-copy">
-          <p class="eyebrow" id="estimatedLabel">Tu pourrais avoir</p>
-          <h1 class="hero-value" id="heroTitle">CHF 22'071</h1>
-          <div class="encouragement" id="encouragement">⭐ Bien joué ! Ton argent bosse aussi pour toi 💪</div>
+      <section class="hero hero-v2" aria-labelledby="heroTitle">
+        <div class="hero-topline">
+          <span class="hero-chip" data-i18n="futureSnapshot">TON FUTUR · EN UN COUP D’ŒIL</span>
+          <span class="hero-duration" id="heroDuration">10 ans</span>
         </div>
 
-        <div class="plant-wrap" aria-hidden="true">
-          <img class="plant-illustration" src="assets/images/plant-bloom.svg" alt="" />
+        <div class="hero-main-row">
+          <div class="hero-copy">
+            <p class="eyebrow" id="estimatedLabel">Tu pourrais avoir</p>
+            <h1 class="hero-value" id="heroTitle">CHF 22'071</h1>
+            <p class="hero-punchline" data-i18n="heroPunchline">À ce rythme, ton argent peut vraiment prendre de l’élan.</p>
+            <div class="time-gain-badge"><span>↗</span><strong id="timeGainValue">+ CHF 5'071</strong><span data-i18n="thanksToTime">grâce au temps</span></div>
+          </div>
+
+          <div class="momentum-visual" aria-hidden="true">
+            <span class="momentum-orbit orbit-one"></span>
+            <span class="momentum-orbit orbit-two"></span>
+            <span class="momentum-core">b.</span>
+            <span class="momentum-dot dot-one"></span>
+            <span class="momentum-dot dot-two"></span>
+          </div>
         </div>
 
-        <div class="stats">
+        <div class="stats stats-v2">
           <div class="stat">
             <div class="stat-icon">💼</div>
-            <div class="stat-label" data-i18n="invested">Tu as mis</div>
-            <div class="stat-value" id="investedValue">CHF 17'000</div>
+            <div class="stat-copy"><div class="stat-label" data-i18n="invested">Tu as mis</div><div class="stat-value" id="investedValue">CHF 17'000</div></div>
           </div>
           <div class="stat">
-            <div class="stat-icon">📊</div>
-            <div class="stat-label" data-i18n="gains">Ton argent a gagné</div>
-            <div class="stat-value" id="gainValue">CHF 5'071</div>
+            <div class="stat-icon">↗</div>
+            <div class="stat-copy"><div class="stat-label" data-i18n="gains">Ton argent a gagné</div><div class="stat-value" id="gainValue">CHF 5'071</div></div>
           </div>
           <div class="stat">
-            <div class="stat-icon">🌱</div>
-            <div class="stat-label" data-i18n="performance">Ce que ça a rapporté</div>
-            <div class="stat-value green" id="performanceValue">29.8 %</div>
+            <div class="stat-icon">%</div>
+            <div class="stat-copy"><div class="stat-label" data-i18n="performance">Performance</div><div class="stat-value green" id="performanceValue">29.8 %</div></div>
           </div>
         </div>
       </section>
 
-      <section class="panel evolution-panel">
-        <div class="panel-kicker" data-i18n="evolution">Ton évolution</div>
-        <div class="panel-title-row">
+      <section class="panel evolution-panel unlock-panel">
+        <div class="unlock-heading-row">
           <div>
-            <h2 data-i18n="savingsTime">Regarde ton argent grandir</h2>
-            <p class="subtitle" data-i18n="subtitle">Change les réglages et vois ce que le temps peut faire 🌱</p>
+            <div class="panel-kicker" data-i18n="futureUnlockedKicker">PROJECTION</div>
+            <h2 data-i18n="futureUnlocked">Ton futur débloqué</h2>
+            <p class="subtitle" data-i18n="futureUnlockedSubtitle">Pas besoin de lire une courbe : regarde simplement où le temps peut t’emmener.</p>
           </div>
           <select class="years-select" id="yearsSelect" aria-label="Durée">
             <option value="5">5 ans</option>
@@ -72,22 +81,30 @@
           </select>
         </div>
 
-        <div class="legend">
-          <div class="legend-item"><span class="legend-line"></span><span data-i18n="totalSavings">Ce que tu pourrais avoir</span></div>
-          <div class="legend-item"><span class="legend-line dashed"></span><span data-i18n="invested">Tu as mis</span></div>
+        <div class="milestones" aria-label="Jalons de projection">
+          <article class="milestone-card milestone-start">
+            <div class="milestone-top"><span class="level-pill">LEVEL 01</span><span class="milestone-year" id="milestone1Year">1 an</span></div>
+            <div class="milestone-value" id="milestone1Value">CHF 6'420</div>
+            <div class="milestone-caption" data-i18n="milestoneStart">Tu lances la machine.</div>
+            <div class="milestone-meta"><span data-i18n="timeAdded">Le temps ajoute</span><strong id="milestone1Gain">CHF 220</strong></div>
+          </article>
+
+          <article class="milestone-card milestone-middle">
+            <div class="milestone-top"><span class="level-pill">LEVEL 02</span><span class="milestone-year" id="milestone2Year">5 ans</span></div>
+            <div class="milestone-value" id="milestone2Value">CHF 12'950</div>
+            <div class="milestone-caption" data-i18n="milestoneMiddle">L’effet composé devient visible.</div>
+            <div class="milestone-meta"><span data-i18n="timeAdded">Le temps ajoute</span><strong id="milestone2Gain">CHF 1'950</strong></div>
+          </article>
+
+          <article class="milestone-card milestone-final">
+            <div class="milestone-top"><span class="level-pill">LEVEL 03</span><span class="milestone-year" id="milestone3Year">10 ans</span></div>
+            <div class="milestone-value" id="milestone3Value">CHF 22'071</div>
+            <div class="milestone-caption" data-i18n="milestoneFinal">Ton argent travaille vraiment avec toi.</div>
+            <div class="milestone-meta"><span data-i18n="timeAdded">Le temps ajoute</span><strong id="milestone3Gain">CHF 5'071</strong></div>
+          </article>
         </div>
 
-        <div class="chart-wrap">
-          <svg id="chart" viewBox="0 0 720 260" role="img" aria-label="Évolution de l'épargne">
-            <defs><linearGradient id="greenFade" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#24bf44" stop-opacity=".42"/><stop offset="100%" stop-color="#24bf44" stop-opacity="0"/></linearGradient></defs>
-            <g id="chartGrid"></g>
-            <path id="areaPath" class="area-main"></path>
-            <path id="investedPath" class="series-invested"></path>
-            <path id="mainPath" class="series-main"></path>
-            <circle id="investedDot" class="endpoint-invested" r="6"></circle>
-            <circle id="mainDot" class="endpoint-main" r="7"></circle>
-          </svg>
-        </div>
+        <div class="unlock-insight"><span class="unlock-icon">⚡</span><span data-i18n="unlockInsight">Plus tu laisses du temps à ton épargne, plus les intérêts prennent le relais.</span></div>
 
         <div class="goal-card">
           <div class="goal-main">
@@ -112,7 +129,7 @@
           </div>
 
           <div class="goal-growth-note">
-            <span>🌱</span>
+            <span>↗</span>
             <span id="growthNote">CHF 5'071 ont été gagnés grâce au temps.</span>
           </div>
 
@@ -138,29 +155,10 @@
       </section>
 
       <section class="panel settings-panel">
-        <div class="settings-head">
-          <div>
-            <div class="settings-title" data-i18n="settings">À toi de jouer</div>
-            <div class="settings-hint" data-i18n="settingsHint">Bouge les curseurs et regarde ce que ça change.</div>
-          </div>
-        </div>
-        <div class="control">
-          <div class="control-head"><span class="control-label" data-i18n="initialCapital">Ton départ</span><span class="control-value" id="initialValue">CHF 5'000</span></div>
-          <input id="initialCapital" type="range" min="0" max="50000" step="500" value="5000" />
-        </div>
-        <div class="control">
-          <div class="control-head"><span class="control-label" data-i18n="monthly">Chaque mois</span><span class="control-value" id="monthlyValue">CHF 100</span></div>
-          <input id="monthly" type="range" min="0" max="2000" step="5" value="100" />
-        </div>
-        <div class="control">
-          <div class="control-head"><span class="control-label" data-i18n="strategy">Style d’investissement</span><span class="control-value" id="returnValue">6.0 % / an</span></div>
-          <div class="strategy-grid" id="strategyGrid">
-            <button class="strategy-btn" data-return="2.5" data-key="income">Prudent</button>
-            <button class="strategy-btn" data-return="4" data-key="balanced">Équilibré</button>
-            <button class="strategy-btn active" data-return="6" data-key="growth">Dynamique</button>
-            <button class="strategy-btn" data-return="7.5" data-key="stocks">100 % actions</button>
-          </div>
-        </div>
+        <div class="settings-head"><div><div class="settings-title" data-i18n="settings">À toi de jouer</div><div class="settings-hint" data-i18n="settingsHint">Bouge les curseurs et regarde ce que ça change.</div></div></div>
+        <div class="control"><div class="control-head"><span class="control-label" data-i18n="initialCapital">Ton départ</span><span class="control-value" id="initialValue">CHF 5'000</span></div><input id="initialCapital" type="range" min="0" max="50000" step="500" value="5000" /></div>
+        <div class="control"><div class="control-head"><span class="control-label" data-i18n="monthly">Chaque mois</span><span class="control-value" id="monthlyValue">CHF 100</span></div><input id="monthly" type="range" min="0" max="2000" step="5" value="100" /></div>
+        <div class="control"><div class="control-head"><span class="control-label" data-i18n="strategy">Style d’investissement</span><span class="control-value" id="returnValue">6.0 % / an</span></div><div class="strategy-grid" id="strategyGrid"><button class="strategy-btn" data-return="2.5" data-key="income">Prudent</button><button class="strategy-btn" data-return="4" data-key="balanced">Équilibré</button><button class="strategy-btn active" data-return="6" data-key="growth">Dynamique</button><button class="strategy-btn" data-return="7.5" data-key="stocks">100 % actions</button></div></div>
       </section>
     </div>
 
