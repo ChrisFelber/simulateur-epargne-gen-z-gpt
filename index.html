@@ -13,40 +13,64 @@
   <link rel="stylesheet" href="css/serious-fun.css" />
   <link rel="stylesheet" href="css/cards-45.css" />
   <link rel="stylesheet" href="css/flow-v2.css" />
+  <link rel="stylesheet" href="css/hero-goal.css" />
 </head>
 <body>
   <main class="app-shell">
     <header class="topbar">
-      <div><div class="logo">bloom<span class="logo-dot">.</span></div><div class="desktop-tagline" data-i18n="desktopTagline">Fais grandir tes projets, petit à petit.</div></div>
+      <div><div class="logo">bloom<span class="logo-dot">.</span></div><div class="desktop-tagline" data-i18n="desktopTagline">Commence petit. Laisse le temps faire le reste.</div></div>
       <div class="top-actions"><button class="circle-btn" id="languageBtn" aria-label="Changer la langue">FR</button><button class="circle-btn" id="themeBtn" aria-label="Changer le thème">◐</button></div>
     </header>
 
     <div class="workspace">
-      <section class="hero hero-v2" aria-labelledby="heroTitle">
+      <section class="hero hero-v2 hero-with-goal" aria-labelledby="heroTitle">
         <div class="hero-topline"><span class="hero-chip" data-i18n="futureSnapshot">TON FUTUR · EN UN COUP D’ŒIL</span><span class="hero-duration" id="heroDuration">10 ans</span></div>
+
         <div class="hero-main-row">
-          <div class="hero-copy"><p class="eyebrow" id="estimatedLabel">Tu pourrais avoir</p><h1 class="hero-value" id="heroTitle">CHF 22'071</h1><p class="hero-punchline" data-i18n="heroPunchline">À ce rythme, ton argent peut vraiment prendre de l’élan.</p><div class="time-gain-badge"><span>↗</span><strong id="timeGainValue">+ CHF 5'071</strong><span data-i18n="thanksToTime">grâce au temps</span></div></div>
+          <div class="hero-copy">
+            <p class="eyebrow" id="estimatedLabel">Tu pourrais avoir</p>
+            <h1 class="hero-value" id="heroTitle">CHF 22'071</h1>
+            <div class="time-gain-badge"><span>↗</span><strong id="timeGainValue">+ CHF 5'071</strong><span data-i18n="thanksToTime">grâce au temps</span></div>
+          </div>
           <div class="momentum-visual" aria-hidden="true"><span class="momentum-orbit orbit-one"></span><span class="momentum-orbit orbit-two"></span><span class="momentum-core">b.</span><span class="momentum-dot dot-one"></span><span class="momentum-dot dot-two"></span></div>
         </div>
+
         <div class="stats stats-v2">
           <div class="stat"><div class="stat-icon">💼</div><div class="stat-copy"><div class="stat-label" data-i18n="invested">Tu as mis</div><div class="stat-value" id="investedValue">CHF 17'000</div></div></div>
           <div class="stat"><div class="stat-icon">↗</div><div class="stat-copy"><div class="stat-label" data-i18n="gains">Ton argent a gagné</div><div class="stat-value" id="gainValue">CHF 5'071</div></div></div>
           <div class="stat"><div class="stat-icon">%</div><div class="stat-copy"><div class="stat-label" data-i18n="performance">Performance</div><div class="stat-value green" id="performanceValue">29.8 %</div></div></div>
         </div>
+
+        <div class="hero-goal-card">
+          <div class="hero-goal-top">
+            <div class="goal-visual goal-visual-v2" id="goalPlant" aria-hidden="true">🌱</div>
+            <div class="hero-goal-copy">
+              <div class="hero-goal-label" data-i18n="goal">Ton projet</div>
+              <div class="goal-name" data-i18n="worldTrip">Ton grand voyage ✈️</div>
+            </div>
+            <div class="goal-percent" id="goalPercent">73%</div>
+          </div>
+          <div class="goal-progress-row"><div class="progress-track"><div class="progress-bar" id="goalProgress"></div></div></div>
+          <div class="hero-goal-bottom">
+            <span id="goalNumbers">CHF 22'071 / CHF 30'000</span>
+            <span class="hero-goal-date"><span data-i18n="estimatedGoalDate">À ce rythme</span> · <strong id="goalDate">—</strong></span>
+          </div>
+          <span class="hero-growth-note" id="growthNote">CHF 5'071 ont été gagnés grâce au temps.</span>
+        </div>
       </section>
 
       <section class="panel evolution-panel unlock-panel">
-        <div class="unlock-heading-row"><div><div class="panel-kicker" data-i18n="futureUnlockedKicker">PROJECTION</div><h2 data-i18n="futureUnlocked">Ton futur débloqué</h2><p class="subtitle" data-i18n="futureUnlockedSubtitle">Pas besoin de lire une courbe : regarde simplement où le temps peut t’emmener.</p></div><select class="years-select" id="yearsSelect" aria-label="Durée"><option value="5">5 ans</option><option value="10" selected>10 ans</option><option value="15">15 ans</option><option value="20">20 ans</option><option value="30">30 ans</option></select></div>
+        <div class="unlock-heading-row"><div><div class="panel-kicker" data-i18n="futureUnlockedKicker">PROJECTION</div><h2 data-i18n="futureUnlocked">Ton futur débloqué</h2><p class="subtitle" data-i18n="futureUnlockedSubtitle">Regarde jusqu’où le temps peut t’emmener.</p></div><select class="years-select" id="yearsSelect" aria-label="Durée"><option value="5">5 ans</option><option value="10" selected>10 ans</option><option value="15">15 ans</option><option value="20">20 ans</option><option value="30">30 ans</option></select></div>
         <div class="milestones" aria-label="Jalons de projection">
-          <article class="milestone-card milestone-start"><div class="milestone-top"><span class="level-pill">LEVEL 01</span><span class="milestone-year" id="milestone1Year">1 an</span></div><div class="milestone-value" id="milestone1Value">CHF 6'420</div><div class="milestone-caption" data-i18n="milestoneStart">Tu lances la machine.</div><div class="milestone-meta"><span data-i18n="timeAdded">Le temps ajoute</span><strong id="milestone1Gain">CHF 220</strong></div></article>
-          <article class="milestone-card milestone-middle"><div class="milestone-top"><span class="level-pill">LEVEL 02</span><span class="milestone-year" id="milestone2Year">5 ans</span></div><div class="milestone-value" id="milestone2Value">CHF 12'950</div><div class="milestone-caption" data-i18n="milestoneMiddle">L’effet composé devient visible.</div><div class="milestone-meta"><span data-i18n="timeAdded">Le temps ajoute</span><strong id="milestone2Gain">CHF 1'950</strong></div></article>
-          <article class="milestone-card milestone-final"><div class="milestone-top"><span class="level-pill">LEVEL 03</span><span class="milestone-year" id="milestone3Year">10 ans</span></div><div class="milestone-value" id="milestone3Value">CHF 22'071</div><div class="milestone-caption" data-i18n="milestoneFinal">Ton argent travaille vraiment avec toi.</div><div class="milestone-meta"><span data-i18n="timeAdded">Le temps ajoute</span><strong id="milestone3Gain">CHF 5'071</strong></div></article>
+          <article class="milestone-card milestone-start"><div class="milestone-top"><span class="level-pill">LEVEL 01</span><span class="milestone-year" id="milestone1Year">1 an</span></div><div class="milestone-value" id="milestone1Value">CHF 6'420</div><div class="milestone-caption" data-i18n="milestoneStart">Tu démarres.</div><div class="milestone-meta"><span data-i18n="timeAdded">Le temps ajoute</span><strong id="milestone1Gain">CHF 220</strong></div></article>
+          <article class="milestone-card milestone-middle"><div class="milestone-top"><span class="level-pill">LEVEL 02</span><span class="milestone-year" id="milestone2Year">5 ans</span></div><div class="milestone-value" id="milestone2Value">CHF 12'950</div><div class="milestone-caption" data-i18n="milestoneMiddle">Ça prend forme.</div><div class="milestone-meta"><span data-i18n="timeAdded">Le temps ajoute</span><strong id="milestone2Gain">CHF 1'950</strong></div></article>
+          <article class="milestone-card milestone-final"><div class="milestone-top"><span class="level-pill">LEVEL 03</span><span class="milestone-year" id="milestone3Year">10 ans</span></div><div class="milestone-value" id="milestone3Value">CHF 22'071</div><div class="milestone-caption" data-i18n="milestoneFinal">Ton argent travaille.</div><div class="milestone-meta"><span data-i18n="timeAdded">Le temps ajoute</span><strong id="milestone3Gain">CHF 5'071</strong></div></article>
         </div>
-        <div class="unlock-insight"><span class="unlock-icon">⚡</span><span data-i18n="unlockInsight">Plus tu laisses du temps à ton épargne, plus les intérêts prennent le relais.</span></div>
+        <div class="unlock-insight"><span class="unlock-icon">⚡</span><span data-i18n="unlockInsight">Plus tu commences tôt, plus le temps travaille pour toi.</span></div>
       </section>
 
       <section class="panel settings-panel settings-panel-v2 simulation-panel">
-        <div class="card-heading-row compact-heading"><div><div class="panel-kicker" data-i18n="settingsKicker">SIMULATION</div><h2 data-i18n="settingsHeadline">Ajuste ton plan</h2><p class="subtitle" data-i18n="settingsHint">Change 2 réglages et vois le résultat en direct.</p></div><span class="card-number">03</span></div>
+        <div class="card-heading-row compact-heading"><div><div class="panel-kicker" data-i18n="settingsKicker">SIMULATION</div><h2 data-i18n="settingsHeadline">Teste ton plan</h2><p class="subtitle" data-i18n="settingsHint">Bouge 2 curseurs. Vois la différence.</p></div><span class="card-number">03</span></div>
         <div class="settings-stack">
           <div class="control control-v2"><div class="control-head"><div><span class="control-step">01</span><span class="control-label" data-i18n="initialCapital">Ton départ</span></div><span class="control-value" id="initialValue">CHF 5'000</span></div><input id="initialCapital" type="range" min="0" max="50000" step="500" value="5000" /></div>
           <div class="control control-v2"><div class="control-head"><div><span class="control-step">02</span><span class="control-label" data-i18n="monthly">Chaque mois</span></div><span class="control-value" id="monthlyValue">CHF 100</span></div><input id="monthly" type="range" min="0" max="2000" step="5" value="100" /></div>
@@ -55,50 +79,28 @@
 
       <div class="accelerator-reveal-wrap">
         <button class="accelerator-reveal-btn accelerator-reveal-btn-v2" id="boostToggleBtn" type="button" aria-controls="boostPanel" aria-expanded="false">
-          <span class="reveal-copy"><small>OPTION 04 · BOOST</small><strong id="boostToggleLabel" data-i18n="showAccelerator">Et si ton objectif arrivait plus tôt ?</strong><em data-i18n="showAcceleratorHint">Teste l’impact d’un complément mensuel en quelques secondes.</em></span>
+          <span class="reveal-copy"><small>OPTION 04 · BOOST</small><strong id="boostToggleLabel" data-i18n="showAccelerator">Et si tu allais plus vite ?</strong><em data-i18n="showAcceleratorHint">Teste un complément mensuel.</em></span>
           <span class="accelerator-reveal-arrow" aria-hidden="true">↓</span>
         </button>
       </div>
 
       <section class="panel boost-panel-v2 boost-panel-conversion" id="boostPanel" hidden>
         <div class="boost-hero-row">
-          <div>
-            <div class="panel-kicker" data-i18n="boostKicker">ACCÉLÉRATEUR</div>
-            <h2 data-i18n="boostHeadline">Atteins ton objectif plus tôt</h2>
-            <p class="subtitle" data-i18n="boostSubtitle">Compare trois compléments mensuels et vois immédiatement le temps potentiellement gagné.</p>
-          </div>
+          <div><div class="panel-kicker" data-i18n="boostKicker">ACCÉLÉRATEUR</div><h2 data-i18n="boostHeadline">Atteins ton objectif plus tôt</h2><p class="subtitle" data-i18n="boostSubtitle">Choisis un complément et vois le temps gagné.</p></div>
           <span class="card-number">04</span>
         </div>
-
-        <div class="boost-value-prop">
-          <span class="boost-value-icon">↗</span>
-          <div><strong data-i18n="boostValueTitle">Un petit complément peut changer ta date d’arrivée.</strong><span data-i18n="boostValueBody">Teste d’abord l’effet sur ta simulation, puis décide si cela te convient.</span></div>
-        </div>
-
         <div class="boost-stage boost-stage-conversion">
-          <div class="boost-copy-block">
-            <span class="boost-mini-label" data-i18n="chooseBoost">CHOISIS UN MONTANT</span>
-            <div class="boost-options boost-options-v2 boost-options-conversion" id="boostOptions">
-              <button class="boost-btn boost-btn-v2 boost-choice" data-boost="100"><span class="boost-plus">+</span><strong>CHF 100</strong><small data-i18n="perMonthShort">/ mois</small><em id="boost100Benefit">—</em></button>
-              <button class="boost-btn boost-btn-v2 boost-choice" data-boost="200"><span class="boost-plus">+</span><strong>CHF 200</strong><small data-i18n="perMonthShort">/ mois</small><em id="boost200Benefit">—</em></button>
-              <button class="boost-btn boost-btn-v2 boost-choice" data-boost="300"><span class="boost-plus">+</span><strong>CHF 300</strong><small data-i18n="perMonthShort">/ mois</small><em id="boost300Benefit">—</em></button>
-            </div>
-          </div>
-
-          <div class="boost-preview boost-preview-v2 boost-preview-conversion" id="boostPreview">
-            <div class="impact-icon" aria-hidden="true">⚡</div>
-            <div class="boost-preview-copy"><span class="boost-mini-label" data-i18n="impactPreview">TON IMPACT</span><span id="boostResult" data-i18n="selectBoostPrompt">Sélectionne un montant pour voir ton nouvel horizon.</span><strong id="boostTimeSaved" data-i18n="selectBoostHint">Aucune modification n’est appliquée avant ta confirmation.</strong></div>
-            <button class="apply-boost-btn apply-boost-v2 apply-boost-conversion" id="applyBoostBtn" data-i18n="applyBoost" disabled>Ajouter ce boost</button>
-          </div>
+          <div class="boost-copy-block"><span class="boost-mini-label" data-i18n="chooseBoost">CHOISIS UN MONTANT</span><div class="boost-options boost-options-v2 boost-options-conversion" id="boostOptions">
+            <button class="boost-btn boost-btn-v2 boost-choice" data-boost="100"><span class="boost-plus">+</span><strong>CHF 100</strong><small data-i18n="perMonthShort">/ mois</small><em id="boost100Benefit">—</em></button>
+            <button class="boost-btn boost-btn-v2 boost-choice" data-boost="200"><span class="boost-plus">+</span><strong>CHF 200</strong><small data-i18n="perMonthShort">/ mois</small><em id="boost200Benefit">—</em></button>
+            <button class="boost-btn boost-btn-v2 boost-choice" data-boost="300"><span class="boost-plus">+</span><strong>CHF 300</strong><small data-i18n="perMonthShort">/ mois</small><em id="boost300Benefit">—</em></button>
+          </div></div>
+          <div class="boost-preview boost-preview-v2 boost-preview-conversion" id="boostPreview"><div class="impact-icon" aria-hidden="true">⚡</div><div class="boost-preview-copy"><span class="boost-mini-label" data-i18n="impactPreview">TON IMPACT</span><span id="boostResult" data-i18n="selectBoostPrompt">Choisis un montant.</span><strong id="boostTimeSaved" data-i18n="selectBoostHint">Tu confirmes seulement si ça te convient.</strong></div><button class="apply-boost-btn apply-boost-v2 apply-boost-conversion" id="applyBoostBtn" data-i18n="applyBoost" disabled>Ajouter ce boost</button></div>
         </div>
-      </section>
-
-      <section class="panel project-panel">
-        <div class="card-heading-row"><div><div class="panel-kicker" data-i18n="projectKicker">OBJECTIF</div><h2 data-i18n="projectHeadline">Ton projet devient concret</h2><p class="subtitle" data-i18n="projectSubtitle">Vois exactement où tu en es et ce qu’il te reste à débloquer.</p></div><span class="card-number">05</span></div>
-        <div class="project-snapshot"><div class="project-main-row"><div class="goal-visual goal-visual-v2" id="goalPlant" aria-hidden="true">🌱</div><div class="goal-content"><div class="goal-title" data-i18n="goal">Ton projet</div><div class="goal-name" data-i18n="worldTrip">Ton grand voyage ✈️</div><div class="goal-progress-row"><div class="progress-track"><div class="progress-bar" id="goalProgress"></div></div><div class="goal-percent" id="goalPercent">73%</div></div><div class="goal-numbers" id="goalNumbers">CHF 22'071 / CHF 30'000</div></div></div><div class="project-insights-grid"><div class="project-insight-card"><span class="project-insight-icon">🧭</span><div><div class="goal-insight-label" data-i18n="estimatedGoalDate">À ce rythme</div><div class="goal-insight-value" id="goalDate">—</div></div></div><div class="project-insight-card project-growth"><span class="project-insight-icon">↗</span><div><div class="goal-insight-label" data-i18n="timeEffect">Effet du temps</div><div class="project-growth-value" id="growthNote">CHF 5'071 ont été gagnés grâce au temps.</div></div></div></div></div>
       </section>
     </div>
-    <p class="footer-note" data-i18n="disclaimer">C’est une simulation : les rendements futurs peuvent être différents.</p>
+
+    <p class="footer-note" data-i18n="disclaimer">Simulation indicative. Les rendements futurs peuvent varier.</p>
   </main>
   <script type="module" src="js/app.js"></script>
 </body>
