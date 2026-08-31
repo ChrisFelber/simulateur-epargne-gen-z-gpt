@@ -12,29 +12,32 @@
 
 .accelerator-reveal-wrap{margin:0}
 .accelerator-reveal-btn{
-  width:100%;min-height:72px;border:1px solid rgba(36,87,214,.16);border-radius:22px;
-  background:linear-gradient(180deg,#fff 0%,#f7faff 100%);color:#17305d;
-  display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;
-  box-shadow:0 10px 24px rgba(34,60,104,.06);text-align:left;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+  width:100%;min-height:86px;border:1px solid rgba(255,255,255,.12);border-radius:24px;
+  background:
+    radial-gradient(circle at 88% 18%,rgba(112,240,214,.20),transparent 24%),
+    linear-gradient(135deg,#17305d 0%,#2457d6 60%,#159f9a 100%);
+  color:#fff;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 20px;
+  box-shadow:0 16px 34px rgba(23,48,93,.18);text-align:left;transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease;
 }
-.accelerator-reveal-btn:hover{transform:translateY(-1px);border-color:rgba(36,87,214,.28);box-shadow:0 14px 28px rgba(34,60,104,.09)}
-.accelerator-reveal-btn span:first-child{display:grid;gap:4px}
-.accelerator-reveal-btn small{font-size:9px;letter-spacing:.1em;font-weight:950;color:#2457d6}
-.accelerator-reveal-btn strong{font-size:15px;letter-spacing:-.2px}
-.accelerator-reveal-arrow{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;background:#17305d;color:#fff;font-size:18px;transition:transform .2s ease,background .2s ease}
-.accelerator-reveal-btn[aria-expanded="true"] .accelerator-reveal-arrow{transform:rotate(180deg);background:#eef4ff;color:#2457d6}
-.accelerator-reveal-btn-v2[aria-expanded="true"]{min-height:50px;padding:9px 12px;border-radius:16px;box-shadow:0 5px 14px rgba(34,60,104,.04)}
+.accelerator-reveal-btn:hover{transform:translateY(-1px);box-shadow:0 19px 38px rgba(23,48,93,.22)}
+.accelerator-reveal-btn span:first-child{display:grid;gap:5px}
+.accelerator-reveal-btn small{font-size:10px;letter-spacing:.12em;font-weight:950;color:#70f0d6}
+.accelerator-reveal-btn strong{font-size:clamp(20px,1.55vw,26px);line-height:1.05;letter-spacing:-.45px;color:#fff}
+.accelerator-reveal-btn em{font-style:normal;font-size:12px;color:#dce8ff;font-weight:650}
+.accelerator-reveal-arrow{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.14);color:#fff;font-size:21px;border:1px solid rgba(255,255,255,.12);transition:transform .2s ease,background .2s ease}
+.accelerator-reveal-btn[aria-expanded="true"] .accelerator-reveal-arrow{transform:rotate(180deg);background:rgba(255,255,255,.20);color:#fff}
+.accelerator-reveal-btn-v2[aria-expanded="true"]{min-height:50px;padding:9px 12px;border-radius:16px;box-shadow:0 5px 14px rgba(23,48,93,.10)}
 .accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy small,.accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy em{display:none}
-.accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy strong{font-size:12px;color:#52627a}
+.accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy strong{font-size:12px;color:#eaf2ff}
 .accelerator-reveal-btn-v2[aria-expanded="true"] .accelerator-reveal-arrow{width:30px;height:30px;border-radius:10px;font-size:14px;box-shadow:none}
 
 #boostPanel[hidden]{display:none!important}
 #boostPanel.revealed{animation:revealBoost .24s ease both}
 @keyframes revealBoost{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 
-body.dark .accelerator-reveal-btn{background:#171f31;color:#fff;border-color:#2a3348}
-body.dark .accelerator-reveal-btn small{color:#8fb1ff}
-body.dark .accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy strong{color:#aebbd0}
+body.dark .accelerator-reveal-btn{background:linear-gradient(135deg,#132746 0%,#1d4fbf 60%,#117e7b);color:#fff;border-color:rgba(255,255,255,.10)}
+body.dark .accelerator-reveal-btn small{color:#70f0d6}
+body.dark .accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy strong{color:#dce8ff}
 
 @media(max-width:980px){
   .workspace{display:block}
@@ -46,11 +49,13 @@ body.dark .accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy strong{c
 @media(max-width:620px){
   .simulation-panel{margin-bottom:10px}
   .accelerator-reveal-wrap{margin:0 0 12px}
-  .accelerator-reveal-btn{min-height:60px;border-radius:18px;padding:12px 14px}
-  .accelerator-reveal-btn strong{font-size:13px}
-  .accelerator-reveal-arrow{width:34px;height:34px;border-radius:11px;font-size:16px}
+  .accelerator-reveal-btn{min-height:82px;border-radius:22px;padding:16px}
+  .accelerator-reveal-btn small{font-size:9px}
+  .accelerator-reveal-btn strong{font-size:20px}
+  .accelerator-reveal-btn em{font-size:11px;max-width:250px}
+  .accelerator-reveal-arrow{width:44px;height:44px;border-radius:14px;font-size:19px;flex:0 0 44px}
   .accelerator-reveal-btn-v2[aria-expanded="true"]{min-height:44px;padding:7px 10px;border-radius:14px}
   .accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy strong{font-size:11px}
-  .accelerator-reveal-btn-v2[aria-expanded="true"] .accelerator-reveal-arrow{width:27px;height:27px;border-radius:9px;font-size:12px}
+  .accelerator-reveal-btn-v2[aria-expanded="true"] .accelerator-reveal-arrow{width:27px;height:27px;border-radius:9px;font-size:12px;flex-basis:27px}
   #boostPanel{margin-bottom:14px}
 }
