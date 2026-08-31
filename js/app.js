@@ -55,16 +55,6 @@ function bindEvents() {
     rerender();
   });
 
-  els.strategyGrid.addEventListener('click', event => {
-    const button = event.target.closest('.strategy-btn');
-    if (!button) return;
-    document.querySelectorAll('.strategy-btn').forEach(item => item.classList.remove('active'));
-    button.classList.add('active');
-    state.annualReturn = Number(button.dataset.return);
-    resetBoostPreview();
-    rerender();
-  });
-
   boostToggleBtn.addEventListener('click', () => {
     state.acceleratorOpen = !state.acceleratorOpen;
     updateAcceleratorToggle();
