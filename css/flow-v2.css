@@ -23,7 +23,11 @@
 .accelerator-reveal-btn small{font-size:9px;letter-spacing:.1em;font-weight:950;color:#2457d6}
 .accelerator-reveal-btn strong{font-size:15px;letter-spacing:-.2px}
 .accelerator-reveal-arrow{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;background:#17305d;color:#fff;font-size:18px;transition:transform .2s ease,background .2s ease}
-.accelerator-reveal-btn[aria-expanded="true"] .accelerator-reveal-arrow{transform:rotate(180deg);background:#2457d6}
+.accelerator-reveal-btn[aria-expanded="true"] .accelerator-reveal-arrow{transform:rotate(180deg);background:#eef4ff;color:#2457d6}
+.accelerator-reveal-btn-v2[aria-expanded="true"]{min-height:54px;padding:10px 12px;border-radius:17px;box-shadow:0 5px 14px rgba(34,60,104,.04)}
+.accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy small,.accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy em{display:none}
+.accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy strong{font-size:12.5px;color:#52627a}
+.accelerator-reveal-btn-v2[aria-expanded="true"] .accelerator-reveal-arrow{width:31px;height:31px;border-radius:10px;font-size:15px;box-shadow:none}
 
 #boostPanel[hidden]{display:none!important}
 #boostPanel.revealed{animation:revealBoost .24s ease both}
@@ -31,6 +35,7 @@
 
 body.dark .accelerator-reveal-btn{background:#171f31;color:#fff;border-color:#2a3348}
 body.dark .accelerator-reveal-btn small{color:#8fb1ff}
+body.dark .accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy strong{color:#aebbd0}
 
 @media(max-width:980px){
   .workspace{display:block}
@@ -42,9 +47,12 @@ body.dark .accelerator-reveal-btn small{color:#8fb1ff}
 
 @media(max-width:620px){
   .simulation-panel{margin-bottom:10px}
-  .accelerator-reveal-wrap{margin:0 0 14px}
+  .accelerator-reveal-wrap{margin:0 0 12px}
   .accelerator-reveal-btn{min-height:64px;border-radius:19px;padding:13px 14px}
   .accelerator-reveal-btn strong{font-size:13px}
   .accelerator-reveal-arrow{width:34px;height:34px;border-radius:11px;font-size:16px}
+  .accelerator-reveal-btn-v2[aria-expanded="true"]{min-height:46px;padding:7px 10px;border-radius:15px}
+  .accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy strong{font-size:11px}
+  .accelerator-reveal-btn-v2[aria-expanded="true"] .accelerator-reveal-arrow{width:28px;height:28px;border-radius:9px;font-size:13px}
   #boostPanel{margin-bottom:14px}
 }
