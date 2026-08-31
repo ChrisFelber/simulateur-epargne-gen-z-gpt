@@ -5,7 +5,7 @@ export function getElements() {
     'heroTitle','estimatedLabel','investedValue','gainValue','performanceValue','yearsSelect','heroDuration','timeGainValue',
     'milestone1Year','milestone1Value','milestone1Gain','milestone2Year','milestone2Value','milestone2Gain','milestone3Year','milestone3Value','milestone3Gain',
     'goalProgress','goalNumbers','goalPercent','goalPlant','goalDate','growthNote','boostOptions','boostPreview','boostResult','boostTimeSaved','applyBoostBtn',
-    'initialCapital','initialValue','monthly','monthlyValue','returnValue','languageBtn','themeBtn','strategyGrid'
+    'initialCapital','initialValue','monthly','monthlyValue','languageBtn','themeBtn'
   ].map(id => [id, document.getElementById(id)]));
 }
 
@@ -68,7 +68,6 @@ export function renderLanguage(state, els, translations) {
     const key = element.dataset.i18n;
     if (t[key]) element.textContent = t[key];
   });
-  document.querySelectorAll('.strategy-btn').forEach(button => button.textContent = t[button.dataset.key]);
   [...els.yearsSelect.options].forEach(option => option.textContent = `${option.value} ${t.years}`);
 }
 
@@ -114,7 +113,6 @@ export function render(state, els, translations) {
   els.heroDuration.textContent = `${state.years} ${t.years}`;
   els.initialValue.textContent = formatCHF(state.initial);
   els.monthlyValue.textContent = formatCHF(state.monthly);
-  els.returnValue.textContent = `${state.annualReturn.toFixed(1)} % / ${t.perYear}`;
   els.goalProgress.style.width = `${summary.goalProgress}%`;
   els.goalNumbers.textContent = `${formatCHF(summary.value)} / ${formatCHF(state.goal)}`;
   els.goalPercent.textContent = `${Math.round(summary.goalProgress)}%`;
