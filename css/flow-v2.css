@@ -1,0 +1,50 @@
+/* Flow v2: simulation first, optional accelerator, objective last */
+.workspace{
+  grid-template-areas:
+    "hero evolution"
+    "simulation evolution"
+    "reveal project"
+    "boost project";
+}
+.simulation-panel{grid-area:simulation}
+.accelerator-reveal-wrap{grid-area:reveal}
+#boostPanel{grid-area:boost}
+.project-panel{grid-area:project}
+
+.accelerator-reveal-wrap{margin:0}
+.accelerator-reveal-btn{
+  width:100%;min-height:72px;border:1px solid rgba(36,87,214,.16);border-radius:22px;
+  background:linear-gradient(180deg,#fff 0%,#f7faff 100%);color:#17305d;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;
+  box-shadow:0 10px 24px rgba(34,60,104,.06);text-align:left;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+.accelerator-reveal-btn:hover{transform:translateY(-1px);border-color:rgba(36,87,214,.28);box-shadow:0 14px 28px rgba(34,60,104,.09)}
+.accelerator-reveal-btn span:first-child{display:grid;gap:4px}
+.accelerator-reveal-btn small{font-size:9px;letter-spacing:.1em;font-weight:950;color:#2457d6}
+.accelerator-reveal-btn strong{font-size:15px;letter-spacing:-.2px}
+.accelerator-reveal-arrow{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;background:#17305d;color:#fff;font-size:18px;transition:transform .2s ease,background .2s ease}
+.accelerator-reveal-btn[aria-expanded="true"] .accelerator-reveal-arrow{transform:rotate(180deg);background:#2457d6}
+
+#boostPanel[hidden]{display:none!important}
+#boostPanel.revealed{animation:revealBoost .24s ease both}
+@keyframes revealBoost{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+
+body.dark .accelerator-reveal-btn{background:#171f31;color:#fff;border-color:#2a3348}
+body.dark .accelerator-reveal-btn small{color:#8fb1ff}
+
+@media(max-width:980px){
+  .workspace{display:block}
+  .simulation-panel{margin-bottom:12px}
+  .accelerator-reveal-wrap{margin:0 0 18px}
+  #boostPanel{margin-bottom:18px}
+  .project-panel{margin-bottom:18px}
+}
+
+@media(max-width:620px){
+  .simulation-panel{margin-bottom:10px}
+  .accelerator-reveal-wrap{margin:0 0 14px}
+  .accelerator-reveal-btn{min-height:64px;border-radius:19px;padding:13px 14px}
+  .accelerator-reveal-btn strong{font-size:13px}
+  .accelerator-reveal-arrow{width:34px;height:34px;border-radius:11px;font-size:16px}
+  #boostPanel{margin-bottom:14px}
+}
