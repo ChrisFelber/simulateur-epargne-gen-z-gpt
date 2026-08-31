@@ -9,14 +9,27 @@ const state = {
   annualReturn: 6,
   goal: 30000,
   lang: localStorage.getItem('bloom-lang') || 'fr',
-  selectedBoost: null
+  selectedBoost: null,
+  acceleratorOpen: false
 };
 
 const els = getElements();
+const boostToggleBtn = document.getElementById('boostToggleBtn');
+const boostToggleLabel = document.getElementById('boostToggleLabel');
+const boostPanel = document.getElementById('boostPanel');
+
+function updateAcceleratorToggle() {
+  const t = translations[state.lang];
+  boostToggleBtn.setAttribute('aria-expanded', String(state.acceleratorOpen));
+  boostToggleLabel.textContent = state.acceleratorOpen ? t.hideAccelerator : t.showAccelerator;
+  boostPanel.hidden = !state.acceleratorOpen;
+  boostPanel.classList.toggle('revealed', state.acceleratorOpen);
+}
 
 function rerender() {
   render(state, els, translations);
   renderBoostPreview(state, els, translations, state.selectedBoost);
+  updateAcceleratorToggle();
 }
 
 function resetBoostPreview() {
@@ -50,6 +63,14 @@ function bindEvents() {
     state.annualReturn = Number(button.dataset.return);
     resetBoostPreview();
     rerender();
+  });
+
+  boostToggleBtn.addEventListener('click', () => {
+    state.acceleratorOpen = !state.acceleratorOpen;
+    updateAcceleratorToggle();
+    if (state.acceleratorOpen) {
+      window.requestAnimationFrame(() => boostPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+    }
   });
 
   els.boostOptions.addEventListener('click', event => {
