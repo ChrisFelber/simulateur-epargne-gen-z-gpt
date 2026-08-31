@@ -5,6 +5,7 @@ export function getElements() {
     'heroTitle','estimatedLabel','investedValue','gainValue','performanceValue','yearsSelect','heroDuration','timeGainValue',
     'milestone1Year','milestone1Value','milestone1Gain','milestone2Year','milestone2Value','milestone2Gain','milestone3Year','milestone3Value','milestone3Gain',
     'goalProgress','goalNumbers','goalPercent','goalPlant','goalDate','growthNote','boostOptions','boostPreview','boostResult','boostTimeSaved','applyBoostBtn',
+    'boost100Benefit','boost200Benefit','boost300Benefit',
     'initialCapital','initialValue','monthly','monthlyValue','languageBtn','themeBtn'
   ].map(id => [id, document.getElementById(id)]));
 }
@@ -54,6 +55,21 @@ function renderMilestones(state, els, translations) {
   });
 }
 
+function boostBenefitLabel(state, translations, boost) {
+  const t = translations[state.lang];
+  const scenario = getBoostScenario(state, boost);
+  if (scenario.monthsSaved === null) return t.boostBenefitCloser;
+  if (scenario.monthsSaved <= 0) return t.boostBenefitCloser;
+  if (scenario.monthsSaved === 1) return t.boostBenefitOneMonth;
+  return t.boostBenefitMonths.replace('{months}', scenario.monthsSaved);
+}
+
+function renderBoostBenefits(state, els, translations) {
+  els.boost100Benefit.textContent = boostBenefitLabel(state, translations, 100);
+  els.boost200Benefit.textContent = boostBenefitLabel(state, translations, 200);
+  els.boost300Benefit.textContent = boostBenefitLabel(state, translations, 300);
+}
+
 export function setRangeFill(input) {
   const min = Number(input.min), max = Number(input.max), value = Number(input.value);
   input.style.setProperty('--pct', `${((value - min) / (max - min)) * 100}%`);
@@ -90,7 +106,11 @@ export function renderBoostPreview(state, els, translations, boost) {
     button.classList.toggle('active', Number(button.dataset.boost) === boost);
   });
 
-  els.boostResult.textContent = `${t.withMonthly.replace('{amount}', formatCHF(scenario.newMonthly))} → ${date === 'done' ? t.goalReached : (date || t.goalNotReached)}`;
+  const horizon = date === 'done' ? t.goalReached : (date || t.goalNotReached);
+  els.boostResult.textContent = t.boostSelectedSummary
+    .replace('{amount}', formatCHF(scenario.newMonthly))
+    .replace('{date}', horizon);
+
   if (scenario.monthsSaved === null || scenario.monthsSaved === 0) {
     els.boostTimeSaved.textContent = t.noTimeSaved;
   } else if (scenario.monthsSaved === 1) {
@@ -123,6 +143,7 @@ export function render(state, els, translations) {
   els.growthNote.textContent = t.growthNote.replace('{amount}', formatCHF(Math.max(0, summary.gains)));
 
   renderMilestones(state, els, translations);
+  renderBoostBenefits(state, els, translations);
   setRangeFill(els.initialCapital);
   setRangeFill(els.monthly);
 }
