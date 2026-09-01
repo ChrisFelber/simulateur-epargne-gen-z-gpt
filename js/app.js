@@ -5,6 +5,7 @@ import { initializeTheme, toggleTheme } from './theme.js';
 const state = {
   initial: 5000,
   monthly: 100,
+  frequency: 'monthly',
   years: 10,
   annualReturn: 6,
   goal: 30000,
@@ -26,6 +27,20 @@ function updateAcceleratorToggle() {
   boostPanel.classList.toggle('revealed', state.acceleratorOpen);
 }
 
+function syncContributionSlider() {
+  if (state.frequency === 'weekly') {
+    els.monthly.min = '0';
+    els.monthly.max = '500';
+    els.monthly.step = '5';
+    els.monthly.value = String(Math.round((state.monthly * 12 / 52) / 5) * 5);
+  } else {
+    els.monthly.min = '0';
+    els.monthly.max = '2000';
+    els.monthly.step = '5';
+    els.monthly.value = String(Math.round(state.monthly / 5) * 5);
+  }
+}
+
 function rerender() {
   render(state, els, translations);
   renderBoostPreview(state, els, translations, state.selectedBoost);
@@ -45,13 +60,25 @@ function bindEvents() {
   });
 
   els.monthly.addEventListener('input', event => {
-    state.monthly = Number(event.target.value);
+    const value = Number(event.target.value);
+    state.monthly = state.frequency === 'weekly' ? value * 52 / 12 : value;
     resetBoostPreview();
     rerender();
   });
 
-  els.yearsSelect.addEventListener('change', event => {
-    state.years = Number(event.target.value);
+  els.frequencyToggle.addEventListener('click', event => {
+    const button = event.target.closest('button[data-frequency]');
+    if (!button || button.dataset.frequency === state.frequency) return;
+    state.frequency = button.dataset.frequency;
+    syncContributionSlider();
+    resetBoostPreview();
+    rerender();
+  });
+
+  els.durationSwitch.addEventListener('click', event => {
+    const button = event.target.closest('button[data-years]');
+    if (!button) return;
+    state.years = Number(button.dataset.years);
     rerender();
   });
 
@@ -84,8 +111,8 @@ function bindEvents() {
   els.applyBoostBtn.addEventListener('click', () => {
     const boost = Number(els.applyBoostBtn.dataset.boost || 0);
     if (!boost) return;
-    state.monthly = Math.min(Number(els.monthly.max), state.monthly + boost);
-    els.monthly.value = String(state.monthly);
+    state.monthly = Math.min(2000, state.monthly + boost);
+    syncContributionSlider();
     resetBoostPreview();
     rerender();
   });
@@ -101,6 +128,7 @@ function bindEvents() {
 }
 
 initializeTheme();
+syncContributionSlider();
 renderLanguage(state, els, translations);
 bindEvents();
 rerender();
