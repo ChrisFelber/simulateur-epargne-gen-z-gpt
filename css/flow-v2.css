@@ -18,18 +18,46 @@
     linear-gradient(135deg,#eef5ff 0%,#e6f0ff 58%,#e8f8f7 100%);
   color:#17305d;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 20px;
   box-shadow:0 14px 30px rgba(34,60,104,.10);text-align:left;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+  position:relative;overflow:hidden;
+  animation:boostCardAttention 5.8s ease-in-out infinite;
+}
+.accelerator-reveal-btn::after{
+  content:"";position:absolute;top:-45%;bottom:-45%;left:-24%;width:16%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.66),transparent);
+  transform:skewX(-18deg) translateX(-260%);pointer-events:none;opacity:0;
+  animation:boostShine 5.8s ease-in-out infinite;
 }
 .accelerator-reveal-btn:hover{transform:translateY(-1px);border-color:rgba(36,87,214,.26);box-shadow:0 18px 34px rgba(34,60,104,.14)}
 .accelerator-reveal-btn span:first-child{display:grid;gap:5px}
 .accelerator-reveal-btn small{font-size:10px;letter-spacing:.12em;font-weight:950;color:#2457d6}
 .accelerator-reveal-btn strong{font-size:clamp(20px,1.55vw,26px);line-height:1.05;letter-spacing:-.45px;color:#17305d}
 .accelerator-reveal-btn em{font-style:normal;font-size:12px;color:#5f6f88;font-weight:650}
-.accelerator-reveal-arrow{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:#17305d;color:#fff;font-size:21px;border:1px solid rgba(23,48,93,.10);box-shadow:0 8px 18px rgba(23,48,93,.16);transition:transform .2s ease,background .2s ease,box-shadow .2s ease}
-.accelerator-reveal-btn[aria-expanded="true"] .accelerator-reveal-arrow{transform:rotate(180deg);background:#2457d6;color:#fff}
+.accelerator-reveal-arrow{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:#17305d;color:#fff;font-size:21px;border:1px solid rgba(23,48,93,.10);box-shadow:0 8px 18px rgba(23,48,93,.16);transition:transform .2s ease,background .2s ease,box-shadow .2s ease;animation:boostArrowNudge 5.8s ease-in-out infinite;position:relative;z-index:1}
+.accelerator-reveal-btn[aria-expanded="true"]{animation:none}
+.accelerator-reveal-btn[aria-expanded="true"]::after{display:none}
+.accelerator-reveal-btn[aria-expanded="true"] .accelerator-reveal-arrow{transform:rotate(180deg);background:#2457d6;color:#fff;animation:none}
 .accelerator-reveal-btn-v2[aria-expanded="true"]{min-height:50px;padding:9px 12px;border-radius:16px;background:#eef5ff;box-shadow:0 5px 14px rgba(34,60,104,.07)}
 .accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy small,.accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy em{display:none}
 .accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy strong{font-size:12px;color:#52627a}
 .accelerator-reveal-btn-v2[aria-expanded="true"] .accelerator-reveal-arrow{width:30px;height:30px;border-radius:10px;font-size:14px;box-shadow:none}
+
+@keyframes boostCardAttention{
+  0%,72%,100%{box-shadow:0 14px 30px rgba(34,60,104,.10);transform:translateY(0)}
+  78%{box-shadow:0 18px 38px rgba(36,87,214,.17),0 0 0 4px rgba(36,87,214,.035);transform:translateY(-1px)}
+  84%{box-shadow:0 14px 30px rgba(34,60,104,.10);transform:translateY(0)}
+}
+@keyframes boostShine{
+  0%,70%{opacity:0;transform:skewX(-18deg) translateX(-260%)}
+  73%{opacity:.28}
+  82%{opacity:.58;transform:skewX(-18deg) translateX(850%)}
+  84%,100%{opacity:0;transform:skewX(-18deg) translateX(850%)}
+}
+@keyframes boostArrowNudge{
+  0%,72%,100%{transform:translateY(0)}
+  76%{transform:translateY(3px)}
+  80%{transform:translateY(-2px)}
+  84%{transform:translateY(0)}
+}
 
 #boostPanel[hidden]{display:none!important}
 #boostPanel.revealed{animation:revealBoost .24s ease both}
@@ -61,4 +89,8 @@ body.dark .accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy strong{c
   .accelerator-reveal-btn-v2[aria-expanded="true"] .reveal-copy strong{font-size:11px}
   .accelerator-reveal-btn-v2[aria-expanded="true"] .accelerator-reveal-arrow{width:27px;height:27px;border-radius:9px;font-size:12px;flex-basis:27px}
   #boostPanel{margin-bottom:14px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .accelerator-reveal-btn,.accelerator-reveal-btn::after,.accelerator-reveal-arrow{animation:none!important}
 }
