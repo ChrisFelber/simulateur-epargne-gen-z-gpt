@@ -2,11 +2,11 @@ import { getSummary, getBoostScenario, projectSavings } from './calculator.js';
 
 export function getElements() {
   return Object.fromEntries([
-    'heroTitle','estimatedLabel','investedValue','gainValue','performanceValue','yearsSelect','heroDuration','timeGainValue',
+    'heroTitle','estimatedLabel','investedValue','gainValue','performanceValue','durationSwitch','heroDuration','timeGainValue',
     'milestone1Year','milestone1Value','milestone1Gain','milestone2Year','milestone2Value','milestone2Gain','milestone3Year','milestone3Value','milestone3Gain',
-    'goalProgress','goalNumbers','goalPercent','goalPlant','goalDate','growthNote','boostOptions','boostPreview','boostResult','boostTimeSaved','applyBoostBtn',
+    'goalProgress','goalNumbers','goalPercent','goalPlant','goalDate','growthNote','achievementTrack','achievementProgress','boostOptions','boostPreview','boostResult','boostTimeSaved','applyBoostBtn',
     'boost100Benefit','boost200Benefit','boost300Benefit',
-    'initialCapital','initialValue','monthly','monthlyValue','returnValue','strategyGrid','languageBtn','themeBtn'
+    'initialCapital','initialValue','monthly','monthlyValue','frequencyToggle','returnValue','strategyGrid','languageBtn','themeBtn'
   ].map(id => [id, document.getElementById(id)]));
 }
 
@@ -55,6 +55,29 @@ function renderMilestones(state, els, translations) {
   });
 }
 
+function renderAchievementRail(value, els) {
+  const caps = [0, 10000, 25000, 100000];
+  const nodes = [...els.achievementTrack.querySelectorAll('.achievement-node')];
+  let nextFound = false;
+  nodes.forEach((node, index) => {
+    const cap = caps[index];
+    const done = value >= cap;
+    node.classList.toggle('is-done', done);
+    node.classList.remove('is-next');
+    if (!done && !nextFound) {
+      node.classList.add('is-next');
+      nextFound = true;
+    }
+  });
+
+  let progress = 0;
+  if (value >= 100000) progress = 86;
+  else if (value >= 25000) progress = 57.3 + Math.min(1, (value - 25000) / 75000) * 28.7;
+  else if (value >= 10000) progress = 28.7 + Math.min(1, (value - 10000) / 15000) * 28.6;
+  else progress = Math.min(1, value / 10000) * 28.7;
+  els.achievementProgress.style.width = `${progress}%`;
+}
+
 function boostBenefitLabel(state, translations, boost) {
   const t = translations[state.lang];
   const scenario = getBoostScenario(state, boost);
@@ -87,7 +110,10 @@ export function renderLanguage(state, els, translations) {
   els.strategyGrid.querySelectorAll('.strategy-btn').forEach(button => {
     button.textContent = t[button.dataset.key];
   });
-  [...els.yearsSelect.options].forEach(option => option.textContent = `${option.value} ${t.years}`);
+  els.durationSwitch.querySelectorAll('button').forEach(button => {
+    button.textContent = `${button.dataset.years}`;
+    button.setAttribute('aria-label', `${button.dataset.years} ${t.years}`);
+  });
 }
 
 export function renderBoostPreview(state, els, translations, boost) {
@@ -128,6 +154,9 @@ export function renderBoostPreview(state, els, translations, boost) {
 export function render(state, els, translations) {
   const t = translations[state.lang];
   const summary = getSummary(state);
+  const displayedContribution = state.frequency === 'weekly' ? state.monthly * 12 / 52 : state.monthly;
+  const contributionSuffix = state.frequency === 'weekly' ? t.perWeekShort : t.perMonthShort;
+
   els.heroTitle.textContent = formatCHF(summary.value);
   els.investedValue.textContent = formatCHF(summary.invested);
   els.gainValue.textContent = formatCHF(summary.gains);
@@ -135,18 +164,27 @@ export function render(state, els, translations) {
   els.timeGainValue.textContent = `+ ${formatCHF(Math.max(0, summary.gains))}`;
   els.heroDuration.textContent = `${state.years} ${t.years}`;
   els.initialValue.textContent = formatCHF(state.initial);
-  els.monthlyValue.textContent = formatCHF(state.monthly);
+  els.monthlyValue.textContent = `${formatCHF(displayedContribution)} ${contributionSuffix}`;
   els.returnValue.textContent = `${state.annualReturn.toFixed(1)} % / ${t.perYear}`;
   els.goalProgress.style.width = `${summary.goalProgress}%`;
   els.goalNumbers.textContent = `${formatCHF(summary.value)} / ${formatCHF(state.goal)}`;
   els.goalPercent.textContent = `${Math.round(summary.goalProgress)}%`;
   els.goalPlant.textContent = getPlantStage(summary.goalProgress);
 
+  els.durationSwitch.querySelectorAll('button').forEach(button => {
+    button.classList.toggle('active', Number(button.dataset.years) === state.years);
+  });
+  els.frequencyToggle.querySelectorAll('button').forEach(button => {
+    button.classList.toggle('active', button.dataset.frequency === state.frequency);
+    button.setAttribute('aria-pressed', String(button.dataset.frequency === state.frequency));
+  });
+
   const date = formatGoalDate(summary.goalMonths, state.lang);
   els.goalDate.textContent = date === 'done' ? t.goalReached : (date || t.goalNotReached);
   els.growthNote.textContent = t.growthNote.replace('{amount}', formatCHF(Math.max(0, summary.gains)));
 
   renderMilestones(state, els, translations);
+  renderAchievementRail(summary.value, els);
   renderBoostBenefits(state, els, translations);
   setRangeFill(els.initialCapital);
   setRangeFill(els.monthly);
