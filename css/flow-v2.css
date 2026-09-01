@@ -19,13 +19,13 @@
   color:#17305d;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 20px;
   box-shadow:0 14px 30px rgba(34,60,104,.10);text-align:left;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
   position:relative;overflow:hidden;
-  animation:boostCardAttention 3.1s ease-in-out infinite;
+  animation:boostCardAttention 3.1s cubic-bezier(.4,0,.2,1) infinite;
 }
 .accelerator-reveal-btn::after{
   content:"";position:absolute;top:-50%;bottom:-50%;left:-24%;width:18%;
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.86),transparent);
   transform:skewX(-18deg) translateX(-260%);pointer-events:none;opacity:0;
-  animation:boostShine 3.1s ease-in-out infinite;
+  animation:boostShine 3.1s cubic-bezier(.4,0,.2,1) infinite;
 }
 .accelerator-reveal-btn:hover{transform:translateY(-2px) scale(1.003);border-color:rgba(36,87,214,.34);box-shadow:0 22px 44px rgba(34,60,104,.20),0 0 0 5px rgba(36,87,214,.07)}
 .accelerator-reveal-btn span:first-child{display:grid;gap:5px;position:relative;z-index:1}
@@ -43,15 +43,13 @@
 
 @keyframes boostCardAttention{
   0%,58%,100%{box-shadow:0 14px 30px rgba(34,60,104,.10);transform:translateY(0) scale(1)}
-  66%{box-shadow:0 26px 54px rgba(36,87,214,.32),0 0 0 7px rgba(36,87,214,.10),0 0 34px rgba(36,87,214,.14);transform:translateY(-3px) scale(1.009)}
-  74%{box-shadow:0 20px 42px rgba(36,87,214,.23),0 0 0 4px rgba(36,87,214,.055),0 0 22px rgba(36,87,214,.09);transform:translateY(-1px) scale(1.004)}
-  82%{box-shadow:0 14px 30px rgba(34,60,104,.10);transform:translateY(0) scale(1)}
+  72%{box-shadow:0 27px 56px rgba(36,87,214,.34),0 0 0 8px rgba(36,87,214,.11),0 0 38px rgba(36,87,214,.17);transform:translateY(-3px) scale(1.01)}
+  86%{box-shadow:0 14px 30px rgba(34,60,104,.10);transform:translateY(0) scale(1)}
 }
 @keyframes boostShine{
-  0%,58%{opacity:0;transform:skewX(-18deg) translateX(-260%)}
-  63%{opacity:.34}
-  73%{opacity:.88;transform:skewX(-18deg) translateX(820%)}
-  79%,100%{opacity:0;transform:skewX(-18deg) translateX(820%)}
+  0%,60%{opacity:0;transform:skewX(-18deg) translateX(-260%)}
+  72%{opacity:.82;transform:skewX(-18deg) translateX(280%)}
+  84%,100%{opacity:0;transform:skewX(-18deg) translateX(820%)}
 }
 
 #boostPanel[hidden]{display:none!important}
