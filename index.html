@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/cards-45.css" />
   <link rel="stylesheet" href="css/flow-v2.css" />
   <link rel="stylesheet" href="css/hero-goal.css" />
+  <link rel="stylesheet" href="css/engagement.css" />
 </head>
 <body>
   <main class="app-shell">
@@ -55,12 +56,31 @@
             <span id="goalNumbers">CHF 22'071 / CHF 30'000</span>
             <span class="hero-goal-date"><span data-i18n="estimatedGoalDate">À ce rythme</span> · <strong id="goalDate">—</strong></span>
           </div>
-          <span class="hero-growth-note" id="growthNote">CHF 5'071 ont été gagnés grâce au temps.</span>
+          <span class="hero-growth-note" id="growthNote">CHF 5'071 gagnés grâce au temps.</span>
+        </div>
+
+        <div class="achievement-rail" aria-label="Caps d’épargne">
+          <span class="achievement-label" data-i18n="capsLabel">TES CAPS</span>
+          <div class="achievement-track" id="achievementTrack">
+            <span class="achievement-progress" id="achievementProgress"></span>
+            <span class="achievement-node is-done" data-cap="0"><i></i><strong data-i18n="capStart">Départ</strong></span>
+            <span class="achievement-node" data-cap="10000"><i></i><strong>10k</strong></span>
+            <span class="achievement-node" data-cap="25000"><i></i><strong>25k</strong></span>
+            <span class="achievement-node" data-cap="100000"><i></i><strong>100k</strong></span>
+          </div>
         </div>
       </section>
 
       <section class="panel evolution-panel unlock-panel">
-        <div class="unlock-heading-row"><div><div class="panel-kicker" data-i18n="futureUnlockedKicker">PROJECTION</div><h2 data-i18n="futureUnlocked">Ton futur débloqué</h2><p class="subtitle" data-i18n="futureUnlockedSubtitle">Regarde jusqu’où le temps peut t’emmener.</p></div><select class="years-select" id="yearsSelect" aria-label="Durée"><option value="5">5 ans</option><option value="10" selected>10 ans</option><option value="15">15 ans</option><option value="20">20 ans</option><option value="30">30 ans</option></select></div>
+        <div class="unlock-heading-row">
+          <div><div class="panel-kicker" data-i18n="futureUnlockedKicker">PROJECTION</div><h2 data-i18n="futureUnlocked">Ton futur débloqué</h2><p class="subtitle" data-i18n="futureUnlockedSubtitle">Regarde jusqu’où le temps peut t’emmener.</p></div>
+          <div class="duration-switch" id="durationSwitch" role="group" aria-label="Durée">
+            <button type="button" data-years="5">5</button>
+            <button type="button" class="active" data-years="10">10</button>
+            <button type="button" data-years="20">20</button>
+            <button type="button" data-years="30">30</button>
+          </div>
+        </div>
         <div class="milestones" aria-label="Jalons de projection">
           <article class="milestone-card milestone-start"><div class="milestone-top"><span class="level-pill">LEVEL 01</span><span class="milestone-year" id="milestone1Year">1 an</span></div><div class="milestone-value" id="milestone1Value">CHF 6'420</div><div class="milestone-caption" data-i18n="milestoneStart">Tu démarres.</div><div class="milestone-meta"><span data-i18n="timeAdded">Le temps ajoute</span><strong id="milestone1Gain">CHF 220</strong></div></article>
           <article class="milestone-card milestone-middle"><div class="milestone-top"><span class="level-pill">LEVEL 02</span><span class="milestone-year" id="milestone2Year">5 ans</span></div><div class="milestone-value" id="milestone2Value">CHF 12'950</div><div class="milestone-caption" data-i18n="milestoneMiddle">Ça prend forme.</div><div class="milestone-meta"><span data-i18n="timeAdded">Le temps ajoute</span><strong id="milestone2Gain">CHF 1'950</strong></div></article>
@@ -73,7 +93,7 @@
         <div class="card-heading-row compact-heading"><div><div class="panel-kicker" data-i18n="settingsKicker">SIMULATION</div><h2 data-i18n="settingsHeadline">Teste ton plan</h2><p class="subtitle" data-i18n="settingsHint">Change 3 réglages. Vois la différence.</p></div><span class="card-number">03</span></div>
         <div class="settings-stack">
           <div class="control control-v2"><div class="control-head"><div><span class="control-step">01</span><span class="control-label" data-i18n="initialCapital">Ton départ</span></div><span class="control-value" id="initialValue">CHF 5'000</span></div><input id="initialCapital" type="range" min="0" max="50000" step="500" value="5000" /></div>
-          <div class="control control-v2"><div class="control-head"><div><span class="control-step">02</span><span class="control-label" data-i18n="monthly">Chaque mois</span></div><span class="control-value" id="monthlyValue">CHF 100</span></div><input id="monthly" type="range" min="0" max="2000" step="5" value="100" /></div>
+          <div class="control control-v2"><div class="control-head"><div><span class="control-step">02</span><span class="control-label" data-i18n="contribution">Ton rythme</span></div><span class="control-value" id="monthlyValue">CHF 100 / mois</span></div><div class="frequency-toggle" id="frequencyToggle" role="group" aria-label="Fréquence des versements"><button type="button" class="active" data-frequency="monthly" data-i18n="monthlyFrequency">Mensuel</button><button type="button" data-frequency="weekly" data-i18n="weeklyFrequency">Hebdo</button></div><input id="monthly" type="range" min="0" max="2000" step="5" value="100" /></div>
           <div class="control control-v2 strategy-control-v2"><div class="control-head"><div><span class="control-step">03</span><span class="control-label" data-i18n="strategy">Style d’investissement</span></div><span class="control-value" id="returnValue">6.0 % / an</span></div><div class="strategy-grid" id="strategyGrid"><button class="strategy-btn" data-return="2.5" data-key="income">Prudent</button><button class="strategy-btn" data-return="4" data-key="balanced">Équilibré</button><button class="strategy-btn active" data-return="6" data-key="growth">Dynamique</button><button class="strategy-btn" data-return="7.5" data-key="stocks">100 % actions</button></div></div>
         </div>
       </section>
