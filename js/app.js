@@ -31,13 +31,13 @@ function syncContributionSlider() {
   if (state.frequency === 'weekly') {
     els.monthly.min = '0';
     els.monthly.max = '500';
-    els.monthly.step = '5';
-    els.monthly.value = String(Math.round((state.monthly * 12 / 52) / 5) * 5);
+    els.monthly.step = '100';
+    els.monthly.value = String(Math.round((state.monthly * 12 / 52) / 100) * 100);
   } else {
     els.monthly.min = '0';
     els.monthly.max = '2000';
-    els.monthly.step = '5';
-    els.monthly.value = String(Math.round(state.monthly / 5) * 5);
+    els.monthly.step = '100';
+    els.monthly.value = String(Math.round(state.monthly / 100) * 100);
   }
 }
 
@@ -60,7 +60,8 @@ function bindEvents() {
   });
 
   els.monthly.addEventListener('input', event => {
-    const value = Number(event.target.value);
+    const value = Math.round(Number(event.target.value) / 100) * 100;
+    event.target.value = String(value);
     state.monthly = state.frequency === 'weekly' ? value * 52 / 12 : value;
     resetBoostPreview();
     rerender();
