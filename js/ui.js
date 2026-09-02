@@ -169,7 +169,7 @@ export function render(state, els, translations) {
   els.goalProgress.style.width = `${summary.goalProgress}%`;
   els.goalNumbers.textContent = `${formatCHF(summary.value)} / ${formatCHF(state.goal)}`;
   els.goalPercent.textContent = `${Math.round(summary.goalProgress)}%`;
-  els.goalPlant.textContent = getPlantStage(summary.goalProgress);
+  if (els.goalPlant) els.goalPlant.textContent = getPlantStage(summary.goalProgress);
 
   els.durationSwitch.querySelectorAll('button').forEach(button => {
     button.classList.toggle('active', Number(button.dataset.years) === state.years);
