@@ -20,6 +20,18 @@
 .frequency-toggle button{border:0;border-radius:8px;background:transparent;color:#7c899d;padding:5px 9px;font-size:9px;font-weight:900;letter-spacing:.02em}
 .frequency-toggle button.active{background:#fff;color:#2457d6;box-shadow:0 3px 9px rgba(34,60,104,.08)}
 
+/* Hero light v1 — keep the information, remove visual noise. */
+.hero-light-v1 .hero-chip{padding:7px 10px;background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.12)}
+.hero-light-v1 .stats-v2{background:rgba(5,25,57,.22);border-color:rgba(255,255,255,.08);backdrop-filter:blur(10px)}
+.hero-light-v1 .stats-v2 .stat{display:block;padding:12px 16px;text-align:left}
+.hero-light-v1 .stats-v2 .stat-copy{min-width:0}
+.hero-light-v1 .stats-v2 .stat-label{font-size:10px;color:#c4d4ec}
+.hero-light-v1 .stats-v2 .stat-value{font-size:15px;margin-top:4px}
+.hero-light-v1 .hero-goal-card{background:rgba(5,25,57,.22);border-color:rgba(255,255,255,.08);backdrop-filter:blur(10px)}
+.hero-light-v1 .hero-goal-top{grid-template-columns:minmax(0,1fr) auto;gap:12px}
+.hero-light-v1 .achievement-rail{background:rgba(5,25,57,.14);border-color:rgba(255,255,255,.07)}
+.hero-light-v1 .time-gain-badge{background:rgba(3,23,52,.18);border-color:rgba(255,255,255,.10)}
+
 body.dark .duration-switch,body.dark .frequency-toggle{background:#111b2d;border-color:#27344a}
 body.dark .duration-switch button.active,body.dark .frequency-toggle button.active{background:#22324d;color:#8fb7ff}
 
@@ -34,4 +46,10 @@ body.dark .duration-switch button.active,body.dark .frequency-toggle button.acti
   .duration-switch button{min-width:31px;padding:7px 6px;font-size:9.5px;border-radius:9px}
   .frequency-toggle{margin-left:32px;margin-bottom:9px}
   .frequency-toggle button{padding:5px 8px;font-size:8.5px}
+
+  .hero-light-v1 .stats-v2 .stat{padding:10px 9px}
+  .hero-light-v1 .stats-v2 .stat-label{font-size:8.8px;line-height:1.15}
+  .hero-light-v1 .stats-v2 .stat-value{font-size:13px;white-space:nowrap}
+  .hero-light-v1 .hero-goal-card{padding:11px 12px}
+  .hero-light-v1 .achievement-rail{padding:9px 10px 8px}
 }
