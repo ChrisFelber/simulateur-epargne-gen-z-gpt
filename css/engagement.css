@@ -37,108 +37,133 @@ body.dark .duration-switch button.active,body.dark .frequency-toggle button.acti
 
 /* Dark mode: make page, cards and inner controls clearly distinct. */
 body.dark{
-  --bg:#070d16;
-  --card:#121d2c;
-  --card-strong:#182538;
-  --line:#30425a;
-  --shadow:0 18px 46px rgba(0,0,0,.42);
+  --bg:#050a12;
+  --card:#111a28;
+  --card-strong:#1c2a3f;
+  --line:#39516f;
+  --shadow:0 18px 46px rgba(0,0,0,.48);
   background:
-    radial-gradient(circle at 85% 5%,rgba(47,102,150,.20),transparent 30%),
-    radial-gradient(circle at 12% 0%,rgba(23,126,118,.12),transparent 26%),
-    #070d16;
+    radial-gradient(circle at 85% 5%,rgba(47,102,150,.16),transparent 30%),
+    radial-gradient(circle at 12% 0%,rgba(23,126,118,.10),transparent 26%),
+    #050a12;
 }
 body.dark .panel{
-  background:#121d2c;
-  border-color:#26384f;
-  box-shadow:0 18px 46px rgba(0,0,0,.38);
+  background:#111a28;
+  border-color:#2a3d57;
+  box-shadow:0 18px 46px rgba(0,0,0,.42);
 }
 body.dark .settings-panel-v2,
 body.dark .project-panel{
-  background:linear-gradient(180deg,#121d2c 0%,#101927 100%);
+  background:linear-gradient(180deg,#121c2a 0%,#0f1723 100%);
 }
 body.dark .control-v2,
 body.dark .milestone-card,
 body.dark .project-main-row{
-  background:#182538;
-  border-color:#2c4059;
-  box-shadow:0 8px 22px rgba(0,0,0,.18);
+  background:#1c2a3f;
+  border-color:#3a5271;
+  box-shadow:0 8px 22px rgba(0,0,0,.22);
 }
 body.dark .unlock-insight,
 body.dark .project-insight-card{
-  background:#17263a;
-  border:1px solid #2a405b;
+  background:#20314a;
+  border:1px solid #405b7d;
 }
 body.dark .accelerator-reveal-btn-v2{
   background:linear-gradient(135deg,#172438 0%,#1b2d47 100%);
-  border-color:#314865;
-  box-shadow:0 10px 26px rgba(0,0,0,.22);
+  border-color:#3b5575;
+  box-shadow:0 10px 26px rgba(0,0,0,.24);
 }
 body.dark .accelerator-reveal-btn-v2[aria-expanded="true"]{
-  background:#182538;
-  border-color:#314865;
+  background:#1c2a3f;
+  border-color:#3b5575;
 }
 body.dark .circle-btn{
   background:#172438;
-  border-color:#314865;
+  border-color:#3b5575;
   color:#f4f7fb;
 }
 
-/* Dark mode: active/selected states must remain unmistakable. */
+/* Dark mode: active/selected states must pop from their parent surface. */
 body.dark .milestone-card.milestone-final{
-  background:linear-gradient(145deg,#1d3f70 0%,#275fdf 58%,#159f9a 100%);
-  border-color:rgba(112,240,214,.42);
-  box-shadow:0 14px 34px rgba(36,87,214,.28),0 0 0 1px rgba(112,240,214,.10);
+  background:linear-gradient(145deg,#214c8d 0%,#2d66ef 55%,#12a69b 100%) !important;
+  border-color:#78f2dc !important;
+  box-shadow:0 16px 38px rgba(38,92,218,.42),0 0 0 1px rgba(120,242,220,.20) !important;
 }
 body.dark .milestone-final .level-pill{
-  background:#f4f7fb;
+  background:#ffffff;
   color:#2457d6;
-  border-color:rgba(255,255,255,.75);
+  border-color:#ffffff;
+  box-shadow:0 6px 16px rgba(0,0,0,.18);
 }
 body.dark .milestone-final .milestone-year,
 body.dark .milestone-final .milestone-caption,
 body.dark .milestone-final .milestone-value{color:#fff}
-body.dark .milestone-final .milestone-meta{border-color:rgba(255,255,255,.18);color:#dce8ff}
-body.dark .milestone-final .milestone-meta strong{color:#8ff5de}
+body.dark .milestone-final .milestone-meta{border-color:rgba(255,255,255,.22);color:#e8f1ff}
+body.dark .milestone-final .milestone-meta strong{color:#98ffe8}
 
-body.dark .duration-switch button.active,
-body.dark .frequency-toggle button.active{
-  background:#2c4267;
+body.dark .duration-switch{background:#0d1521;border-color:#314763}
+body.dark .duration-switch button{color:#74859d}
+body.dark .duration-switch button.active{
+  background:#31508a;
   color:#fff;
-  box-shadow:0 0 0 1px rgba(123,167,255,.45),0 6px 16px rgba(0,0,0,.24);
+  box-shadow:0 0 0 1px rgba(138,183,255,.65),0 6px 16px rgba(0,0,0,.28);
+}
+body.dark .frequency-toggle{background:#0d1521;border-color:#314763}
+body.dark .frequency-toggle button{color:#7f8fa5}
+body.dark .frequency-toggle button.active{
+  background:#31508a;
+  color:#fff;
+  box-shadow:0 0 0 1px rgba(138,183,255,.65),0 5px 14px rgba(0,0,0,.24);
+}
+body.dark .strategy-btn{
+  background:#172337;
+  border-color:#334b69;
+  color:#b8c5d8;
 }
 body.dark .strategy-btn.active{
-  background:#203a66;
-  color:#dfe9ff;
-  border-color:#6f9cff;
-  box-shadow:0 0 0 2px rgba(111,156,255,.20),0 8px 20px rgba(0,0,0,.22);
+  background:#2b5ac7;
+  color:#fff;
+  border-color:#88afff;
+  box-shadow:0 0 0 2px rgba(136,175,255,.24),0 8px 22px rgba(0,0,0,.24);
 }
 body.dark .boost-choice.active,
 body.dark .boost-btn.active{
-  background:rgba(112,240,214,.14);
+  background:#176a66;
   color:#fff;
   border-color:#70f0d6;
-  box-shadow:0 0 0 2px rgba(112,240,214,.16),0 8px 20px rgba(0,0,0,.22);
+  box-shadow:0 0 0 2px rgba(112,240,214,.20),0 8px 20px rgba(0,0,0,.24);
 }
+body.dark .achievement-node{color:#607087}
 body.dark .achievement-node.is-done{color:#fff}
 body.dark .achievement-node.is-done i{
   background:#70f0d6;
   border-color:#153d55;
-  box-shadow:0 0 0 4px rgba(112,240,214,.18),0 0 18px rgba(112,240,214,.22);
+  box-shadow:0 0 0 4px rgba(112,240,214,.22),0 0 20px rgba(112,240,214,.28);
 }
-body.dark .achievement-node.is-next{color:#b6ffef}
+body.dark .achievement-node.is-next{color:#c3fff2}
 body.dark .achievement-node.is-next i{
   background:#fff;
   border-color:#70f0d6;
-  box-shadow:0 0 0 4px rgba(112,240,214,.16);
+  box-shadow:0 0 0 4px rgba(112,240,214,.18);
 }
 body.dark .control-step{
-  background:#243b5f;
-  color:#9ec0ff;
+  background:#2c4774;
+  color:#d6e4ff;
 }
 body.dark .goal-percent{
-  background:#f4f7fb;
+  background:#fff;
   color:#17305d;
 }
+body.dark .level-pill{
+  background:#eef4ff;
+  color:#2457d6;
+}
+body.dark .milestone-year,
+body.dark .milestone-caption,
+body.dark .milestone-meta{color:#aebbd0}
+body.dark .milestone-value{color:#fff}
+body.dark .subtitle{color:#9baabd}
+body.dark .panel-kicker{color:#4f77ef}
 
 @media(max-width:620px){
   .achievement-rail{margin-top:10px;padding:10px 10px 9px;border-radius:15px}
