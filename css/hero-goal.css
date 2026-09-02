@@ -18,11 +18,45 @@
 
 @media(max-width:620px){
   .hero-with-goal{gap:13px}
+  .hero-with-goal .hero-main-row{grid-template-columns:minmax(0,1fr) 72px;gap:8px;align-items:center}
+  .hero-with-goal .hero-copy{min-width:0}
+  .hero-with-goal .hero-value{font-size:clamp(36px,10.1vw,44px)!important;line-height:.94;letter-spacing:-2.2px!important;white-space:nowrap;max-width:100%}
+  .hero-with-goal .momentum-visual{width:72px;justify-self:end}
+  .hero-with-goal .momentum-core{width:42px;height:42px;border-radius:16px;font-size:19px}
+  .hero-with-goal .orbit-one{width:62px;height:62px}
+  .hero-with-goal .orbit-two{width:72px;height:46px}
+  .hero-with-goal .dot-one{top:9px;right:10px}.hero-with-goal .dot-two{left:7px;bottom:15px}
+  .hero-with-goal .time-gain-badge{max-width:100%;font-size:9.5px;gap:4px;padding:8px 9px;white-space:nowrap}
+  .hero-with-goal .time-gain-badge strong{font-size:10px}
+
+  .hero-with-goal .stats-v2{grid-template-columns:repeat(3,minmax(0,1fr));overflow:hidden}
+  .hero-with-goal .stats-v2 .stat{min-width:0;gap:6px;padding:11px 7px}
+  .hero-with-goal .stats-v2 .stat-icon{width:30px;height:30px;border-radius:10px;font-size:13px;flex:0 0 30px}
+  .hero-with-goal .stats-v2 .stat-copy{min-width:0}
+  .hero-with-goal .stats-v2 .stat-label{font-size:8.5px;line-height:1.15;min-height:20px}
+  .hero-with-goal .stats-v2 .stat-value{font-size:12.5px;line-height:1.1;letter-spacing:-.25px;white-space:nowrap}
+  .hero-with-goal .stats-v2 .stat:last-child .stat-value{font-size:12px}
+
   .hero-goal-card{padding:12px;border-radius:17px}
+  .hero-goal-top{grid-template-columns:36px minmax(0,1fr) auto;gap:8px}
   .hero-goal-card .goal-visual-v2{width:36px;height:36px;border-radius:12px;font-size:20px}
   .hero-goal-card .goal-name{font-size:12px}
   .hero-goal-label{font-size:8px}
   .hero-goal-card .goal-percent{font-size:9px;padding:5px 7px}
-  .hero-goal-bottom{font-size:8.8px;gap:8px}
-  .hero-goal-date{max-width:48%;overflow:hidden;text-overflow:ellipsis}
+  .hero-goal-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;font-size:8.5px;gap:8px}
+  .hero-goal-bottom>span:first-child{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hero-goal-date{max-width:none;overflow:visible;text-overflow:clip;white-space:nowrap;text-align:right}
+}
+
+@media(max-width:390px){
+  .hero-with-goal .hero-main-row{grid-template-columns:minmax(0,1fr) 62px;gap:6px}
+  .hero-with-goal .hero-value{font-size:clamp(33px,9.7vw,40px)!important;letter-spacing:-1.8px!important}
+  .hero-with-goal .momentum-visual{width:62px}
+  .hero-with-goal .momentum-core{width:38px;height:38px;border-radius:14px;font-size:17px}
+  .hero-with-goal .orbit-one{width:54px;height:54px}.hero-with-goal .orbit-two{width:62px;height:40px}
+  .hero-with-goal .stats-v2 .stat{padding:10px 5px;gap:5px}
+  .hero-with-goal .stats-v2 .stat-icon{width:27px;height:27px;flex-basis:27px;font-size:12px}
+  .hero-with-goal .stats-v2 .stat-value{font-size:11.5px}
+  .hero-with-goal .stats-v2 .stat:last-child .stat-value{font-size:11px}
+  .hero-goal-bottom{font-size:8px;gap:5px}
 }
